@@ -1,0 +1,43 @@
+html,
+body {
+  height: 100%;
+}
+
+html {
+  @include font-smoothing(antialiased);
+}
+
+body {
+  background: var(--body-background);
+  text-rendering: optimizeLegibility;
+  font-family: "Lato", sans-serif;
+}
+
+body.is-active {
+  overflow: hidden;
+}
+
+a {
+  text-decoration: none;
+  transition: $transition_all;
+  outline: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.customUsetAvatar {
+  height: 100%;
+  width: 100%;
+  svg {
+    height: 100%;
+    width: 100%;
+  }
+}
+[role="dialog"] {
+  h2 {
+    white-space: nowrap;
+    word-wrap: initial;
+  }
+}

@@ -1,0 +1,32 @@
+.asset {
+  display: flex;
+  align-items: center;
+  gap: rem(8);
+  width: 100%;
+  @include breakpoint(tablet) {
+    border-bottom: none;
+    width: auto;
+  }
+}
+
+.label {
+  @include font-size("text-lg", "regular");
+  font-family: $lato;
+  color: var(--white);
+}
+
+.sm {
+  .label {
+    font-family: $roboto;
+    @include font-size("text-md", "regular");
+  }
+}
+
+.xs {
+  gap: rem(4);
+
+  .label {
+    font-family: $lato;
+    @include font-size("text-xs", "regular");
+  }
+}

@@ -1,0 +1,58 @@
+// Headings
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  word-break: break-word;
+  word-wrap: break-word;
+  font-weight: normal;
+  margin: 0;
+}
+
+p {
+  color: var(--white);
+}
+
+h1 {
+  color: var(--white);
+  font-family: $lato;
+  @include font-size("text-xl", "semibold");
+  @include spacing(margin, 24, "bottom");
+
+  @include breakpoint(tablet) {
+    @include font-size("text-md", "semibold");
+  }
+}
+
+h3 {
+  @include font-size("text-md", "semibold");
+  @include spacing(margin, 15, "bottom");
+  font-family: $lato;
+  color: var(--white);
+
+  @include breakpoint(tablet) {
+    @include font-size("text-sm", "semibold");
+  }
+}
+
+h4 {
+  @include font-size("text-sm", "semibold");
+  color: var(--white);
+  font-family: $lato;
+}
+
+h5 {
+  @include font-size("text-xs", "regular");
+  color: var(--white-60);
+  font-family: $lato;
+}
+
+li {
+  @include font-size("text-sm", "regular");
+  color: var(--white);
+  font-family: $lato;
+  line-height: 1.5rem;
+}

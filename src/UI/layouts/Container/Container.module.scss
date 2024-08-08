@@ -1,0 +1,34 @@
+.container {
+  margin: 0 auto;
+  padding-right: rem(24);
+  padding-left: rem(24);
+  width: 100%;
+
+  @include breakpoint(mobile) {
+    max-width: rem(663);
+  }
+  @include breakpoint(desktop) {
+    max-width: map-get($container-sizes, xl);
+  }
+
+  &.sm {
+    max-width: map-get($container-sizes, sm);
+  }
+
+  &.md {
+    max-width: map-get($container-sizes, md);
+  }
+
+  &.lg {
+    max-width: map-get($container-sizes, lg);
+  }
+
+  &.loader {
+    max-width: map-get($container-sizes, xl);
+    display: flex;
+    flex-direction: column;
+    height: 100% !important;
+    justify-content: center;
+    align-items: center;
+  }
+}

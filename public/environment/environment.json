@@ -1,0 +1,10 @@
+{
+  "API_URL": "https://app.canary.ithacanoemon.tech/api/v1",
+  "WS_URL": "wss://app.canary.ithacanoemon.tech/wss",
+  "POINTS_URL": "https://app.canary.ithacanoemon.tech/api/points/v3",
+  "KYC_URL": "https://app.canary.ithacanoemon.tech",
+  "GRAFANA_URL": "https://dashboard.canary.ithacanoemon.tech/",
+  "TRADING_URL": "https://app.canary.ithacanoemon.tech",
+  "SUBGRAPH_URL": "https://api.studio.thegraph.com/query/43740/ithaca-arb-sepolia-canary/v1.0.1",
+  "SQUID_API_URL": "https://testnet.api.squidrouter.com"
+}

@@ -1,0 +1,19 @@
+version: "3.5"
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - NEXT_PUBLIC_WALLET_CONNECT_PROJECT_ID=9577531e389c799d54896f39e80d7bb0
+    container_name: ithaca-interface
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app
+      - /app/node_modules
+      - /app/.next
+    entrypoint: ["yarn", "dev"]
+    env_file:
+      - .env

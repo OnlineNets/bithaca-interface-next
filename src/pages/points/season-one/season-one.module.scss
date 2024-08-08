@@ -1,0 +1,84 @@
+.pageWrapper {
+  max-width: rem(1024);
+  margin: auto;
+
+  hr {
+    display: block;
+    color: var(--purple-30);
+    width: 6rem;
+    border-top: 1px solid var(--purple-30);
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.heading {
+  text-align: center;
+  h1 {
+    @include font-size("text-xl", "medium");
+    @include spacing("margin", 8, "bottom");
+  }
+
+  p {
+    @include spacing("margin", 10, "top");
+    max-width: 52rem;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-family: $lato;
+  }
+}
+
+.statsWrapper {
+  @include spacing("margin", 30, "top");
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+
+  @include breakpoint(desktop) {
+    flex-direction: row;
+  }
+}
+
+.leftBotttomText {
+  color: white;
+  position: relative;
+  padding-left: 20px;
+  font-family: $lato;
+  top: -40px;
+}
+
+.buttonWrapper {
+  display: flex;
+  justify-content: center;
+
+  .button {
+    width: 16rem;
+    @include spacing("margin", 20, "top");
+  }
+}
+
+.headingWrapper {
+  @include spacing("margin", 30, "top+bottom");
+  text-align: center;
+
+  h1 {
+    @include font-size("text-lg", "medium");
+    @include spacing("margin", 8, "bottom");
+  }
+
+  p {
+    @include spacing("margin", 10, "top");
+    max-width: 48rem;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-family: $lato;
+  }
+}
+
+.ithacaBlogImageWrapper {
+  position: relative;
+  width: 100%;
+}

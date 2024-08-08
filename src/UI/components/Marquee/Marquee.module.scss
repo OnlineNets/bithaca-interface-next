@@ -1,0 +1,48 @@
+.marquee-container {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  overflow-x: hidden;
+  transform: none;
+
+  &:hover .marquee,
+  &:active .marquee {
+    animation-play-state: paused !important;
+  }
+}
+
+.marquee {
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  min-width: 100%;
+  z-index: 1;
+}
+
+@keyframes animate-marquee {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.marquee-initial-child-container {
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: row;
+  align-items: center;
+  min-width: auto;
+}
+
+.marquee-child {
+  transform: none;
+}
+
+.spacer {
+  @include spacing(margin, 24, "left");
+}

@@ -1,0 +1,25 @@
+.radioButtonClassName {
+  height: auto;
+  margin-bottom: rem(-8);
+  .optionClassName {
+    label.labelClassName {
+      padding-top: rem(4.5);
+      padding-bottom: rem(4.5);
+      height: auto;
+    }
+    &:first-of-type {
+      label.labelClassName {
+        color: var(--green-20);
+      }
+    }
+    &:last-of-type {
+      label.labelClassName {
+        color: var(--red-20);
+      }
+    }
+  }
+}
+
+.sideRadioButtonClassName {
+  justify-content: center;
+}

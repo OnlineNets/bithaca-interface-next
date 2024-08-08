@@ -1,0 +1,17 @@
+.countdownTimer {
+  display: flex;
+  align-items: center;
+  gap: rem(4);
+  height: rem(16);
+
+  span {
+    @include font-size("text-xxs", "regular");
+    color: var(--white-60);
+  }
+
+  .white {
+    font-family: $lato;
+    @include font-size("text-sm", "regular");
+    color: var(--white);
+  }
+}

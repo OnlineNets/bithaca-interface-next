@@ -1,0 +1,175 @@
+/* ===== START Scrollbar CSS ===== */
+// Doc: https://developer.chrome.com/docs/css-ui/scrollbar-styling
+/* Modern browsers with `scrollbar-*` support */
+@supports (scrollbar-width: auto) {
+  .table {
+    scrollbar-width: thin;
+    scrollbar-color: var(--white-30) transparent;
+  }
+}
+
+/* Legacy browsers with `::-webkit-scrollbar-*` support */
+@supports selector(::-webkit-scrollbar) {
+  .table::-webkit-scrollbar-button:single-button,
+  .table::-webkit-scrollbar-button:single-button:vertical:decrement,
+  .table::-webkit-scrollbar-button:single-button:vertical:increment,
+  .table::-webkit-scrollbar-button:single-button:horizontal:decrement,
+  .table::-webkit-scrollbar-button:single-button:horizontal:increment {
+    display: none;
+    background: transparent;
+  }
+
+  .table::-webkit-scrollbar-track,
+  .table::-webkit-scrollbar-track:hover,
+  .table::-webkit-scrollbar-track:active {
+    background: transparent;
+  }
+
+  .table::-webkit-scrollbar-thumb,
+  .table::-webkit-scrollbar-thumb:hover,
+  .table::-webkit-scrollbar-thumb:active {
+    background-color: var(--white-30);
+    border-radius: rem(10);
+  }
+
+  .table::-webkit-scrollbar {
+    max-width: rem(6);
+    max-height: rem(6);
+  }
+}
+
+.table:hover {
+  --fix: ; /* This custom property invalidates styles on hover, thereby enforcing a style recomputation. This is needed to work around a bug in Safari. */
+}
+/* ===== END Scrollbar CSS ===== */
+
+.tableContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.table {
+  display: flex;
+  flex-direction: column;
+  gap: rem(4);
+  color: var(--white);
+  min-height: rem(200);
+  max-height: rem(200);
+  @include spacing(padding, 4, "right");
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.header {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  align-items: center;
+  font-family: $roboto;
+  color: var(--white-60);
+  background: none;
+  box-shadow: none;
+  backdrop-filter: none;
+  padding-bottom: rem(4);
+  border-bottom: rem(1) solid var(--white-20);
+
+  .cell {
+    @include font-size("text-xs", "regular");
+    display: flex;
+    grid-column: span 1 / span 1;
+
+    &:first-child {
+      grid-column: span 3 / span 3;
+      padding-left: rem(0);
+    }
+
+    &:nth-child(2),
+    &:nth-child(3),
+    &:nth-child(4) {
+      justify-content: center;
+    }
+
+    &:nth-child(5),
+    &:last-child {
+      white-space: nowrap;
+      justify-content: flex-end;
+    }
+  }
+}
+
+.row {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  align-items: center;
+  position: relative;
+  padding-bottom: rem(4);
+  border-bottom: rem(1) solid var(--white-20);
+
+  .cell {
+    @include font-size("text-xs", "regular");
+    font-family: $roboto;
+    display: flex;
+    z-index: 1;
+    position: relative;
+    grid-column: span 1 / span 1;
+
+    &:first-child {
+      grid-column: span 3 / span 3;
+    }
+
+    &:nth-child(2),
+    &:nth-child(3),
+    &:nth-child(4) {
+      justify-content: center;
+    }
+
+    &:nth-child(5),
+    &:last-child {
+      white-space: nowrap;
+      justify-content: flex-end;
+    }
+  }
+
+  button {
+    @include spacing(padding, 6, "all");
+    border-radius: rem(6);
+    background: var(--white-10);
+    height: rem(16);
+    width: rem(16);
+    @include spacing(padding, 8, "top+bottom");
+    @include spacing(padding, 4, "left+right");
+  }
+
+  .dot {
+    display: flex;
+    align-items: center;
+    gap: rem(8);
+
+    &:nth-child(1) {
+      flex: 1;
+    }
+  }
+
+  &:last-child {
+    @include spacing(margin, 24, "bottom");
+  }
+}
+
+.clearAll {
+  align-self: flex-end;
+  @include font-size("text-xs", "bold");
+}
+
+.strategy {
+  white-space: nowrap;
+}
+
+.emptyContainer {
+  @include font-size("text-sm", "regular");
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: $lato;
+  flex: 1;
+}

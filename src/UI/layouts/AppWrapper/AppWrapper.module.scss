@@ -1,0 +1,87 @@
+.appWrapper {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+.background {
+  background: url("/background-noise.png") center/contain repeat;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.container {
+  @include breakpoint(mobile) {
+    position: absolute;
+  }
+  @include breakpoint(tablet) {
+    position: absolute;
+  }
+  @include breakpoint(desktop) {
+    position: fixed;
+  }
+}
+
+.leftShapeContainer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.leftShape {
+  background: url("/background-left-effect.png") center/contain;
+  animation: leftShapeMove 10s infinite alternate;
+  position: relative;
+  bottom: 0;
+  transform: translate(0%, 100%);
+  width: 100%;
+  aspect-ratio: 2164/978;
+}
+
+.rightShapeContainer {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.rightShape {
+  background: url("/background-right-effect.png") center/contain;
+  animation: rightShapeMove 10s infinite alternate;
+  position: relative;
+  bottom: 0;
+  transform: rotate(0deg) translate(0%, 100%);
+  width: 100%;
+  aspect-ratio: 2123/1197;
+  pointer-events: none;
+  z-index: -1;
+}
+
+@keyframes leftShapeMove {
+  from {
+    transform: translate(-20%, 80%);
+    opacity: 0.2;
+  }
+  to {
+    transform: translate(-20%, 60%);
+    opacity: 1;
+  }
+}
+
+@keyframes rightShapeMove {
+  from {
+    transform: translate(20%, 80%);
+    opacity: 0.2;
+  }
+  to {
+    transform: translate(20%, 60%);
+    opacity: 1;
+  }
+}

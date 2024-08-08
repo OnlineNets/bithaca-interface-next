@@ -1,0 +1,34 @@
+.container {
+  flex: 0 0 auto;
+
+  label:first-child {
+    @include font-size("text-xs", "regular");
+    @include spacing(margin, 8, "bottom");
+    display: flex;
+    align-items: center;
+    gap: rem(4);
+    color: var(--white-60);
+    font-family: $lato;
+  }
+
+  p {
+    @include font-size("text-xs", "regular");
+    display: flex;
+    color: var(--white-60);
+    font-style: italic;
+
+    & span span {
+      color: var(--white);
+    }
+  }
+}
+
+.labelHidden {
+  visibility: hidden;
+}
+
+@media (max-width: $desktop) {
+  .container {
+    flex: initial;
+  }
+}

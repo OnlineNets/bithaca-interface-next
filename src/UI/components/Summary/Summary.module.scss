@@ -1,0 +1,42 @@
+.summary {
+  @include spacing(padding, 20, "top+bottom");
+  @include spacing(margin, 20, "top+bottom");
+  border-top: rem(1) solid var(--white-rgba-20);
+  border-bottom: rem(1) solid var(--white-rgba-20);
+  display: flex;
+  flex-direction: column;
+  gap: rem(16);
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  &:nth-child(4),
+  &:nth-child(6) {
+    align-items: flex-start;
+  }
+}
+
+.label {
+  color: #9a9daa;
+  font-family: $roboto;
+  @include font-size("text-xs", "regular");
+}
+
+.value {
+  @include font-size("text-sm", "regular");
+}
+
+.currency {
+  display: flex;
+  align-items: center;
+  gap: rem(4);
+
+  svg {
+    height: rem(16);
+    width: rem(16);
+  }
+}

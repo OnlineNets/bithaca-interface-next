@@ -1,0 +1,32 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: rem(6);
+
+  p {
+    @include font-size("text-xs", "regular");
+    display: flex;
+    color: var(--white-60);
+    font-style: italic;
+    @include spacing(margin, 8, "bottom");
+
+    @include breakpoint(tablet) {
+      margin-bottom: 0 !important;
+    }
+    & span span {
+      color: var(--white);
+    }
+  }
+}
+
+.wrapper {
+  @include breakpoint(tablet) {
+    display: flex;
+  }
+  align-items: center;
+  gap: rem(15);
+
+  p {
+    font-style: normal;
+  }
+}

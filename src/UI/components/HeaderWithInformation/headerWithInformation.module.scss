@@ -1,0 +1,8 @@
+.title {
+  @include font-size("text-sm", "semibold");
+  font-family: $lato;
+  margin-bottom: 0px;
+  margin-right: rem(24);
+  padding-bottom: rem(8);
+  border-bottom: 1px solid var(--purple-30);
+}

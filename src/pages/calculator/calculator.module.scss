@@ -1,0 +1,162 @@
+.mainPanel {
+  padding: rem(30);
+
+  width: rem(850);
+
+  @include breakpoint(desktop) {
+    width: rem(850);
+  }
+
+  @include breakpoint2(tablet) {
+    width: rem(650);
+  }
+
+  @include breakpoint2(mobile) {
+    width: rem(450);
+  }
+
+  p {
+    font-family: $lato;
+    font-size: rem(18);
+    margin-bottom: rem(24);
+    line-height: normal;
+    @include breakpoint2(tablet) {
+      font-size: rem(16);
+    }
+  }
+}
+
+.inputContainer {
+  > :last-child {
+    margin-bottom: 0px;
+  }
+}
+
+.title {
+  @include font-size("text-sm", "semibold");
+  font-family: $lato;
+  margin-bottom: 0px;
+  margin-right: rem(24);
+  padding-bottom: rem(8);
+  border-bottom: 1px solid var(--purple-30);
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+
+  h1 {
+    margin-bottom: rem(6);
+    font-size: rem(26);
+    font-weight: 400;
+    @include breakpoint2(tablet) {
+      font-size: rem(16);
+    }
+    @include breakpoint2(mobile) {
+      font-size: rem(14);
+    }
+  }
+
+  h2 {
+    color: white;
+    margin-bottom: rem(20);
+    font-size: rem(16);
+    font-weight: 100;
+    @include breakpoint2(tablet) {
+      font-size: rem(16);
+    }
+    @include breakpoint2(mobile) {
+      font-size: rem(14);
+    }
+  }
+}
+
+.imageContainer {
+  width: rem(850);
+  height: 150px;
+
+  @include breakpoint(desktop) {
+    width: rem(850);
+  }
+
+  @include breakpoint2(tablet) {
+    width: rem(650);
+  }
+
+  @include breakpoint2(mobile) {
+    width: rem(450);
+  }
+
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.image {
+  width: 100%;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  p {
+    color: var(--white-60);
+    font-size: rem(14);
+    margin-bottom: rem(14);
+  }
+
+  .valueHeader {
+    width: rem(90);
+  }
+}
+
+.verticalDivider {
+  flex: 1;
+  height: 1px;
+  background-color: var(--white-10);
+  margin-bottom: rem(10);
+}
+
+.result {
+  display: flex;
+  justify-content: space-between;
+  margin-top: rem(30);
+  p {
+    color: var(--green-40);
+  }
+}
+
+.resultValue {
+  display: flex;
+  flex-direction: row;
+}
+
+.description {
+  font-size: rem(12) !important;
+  color: #aaa !important;
+  margin-right: 40px;
+  white-space: pre-wrap;
+  text-align: justify;
+}
+
+.buttons {
+  display: flex;
+  justify-content: flex-end;
+
+  button {
+    font-weight: lighter;
+    margin-left: rem(20);
+  }
+
+  .resetButton {
+    background-color: transparent !important;
+    border: solid 1px var(--green-30);
+    color: var(--green-30);
+    font-weight: lighter;
+    &::before {
+      background: transparent !important;
+    }
+  }
+}

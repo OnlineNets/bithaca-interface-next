@@ -1,0 +1,16 @@
+.container {
+  display: grid;
+  grid-template-columns: max-content max-content max-content;
+  gap: 5px;
+  row-gap: 0px;
+  .currency {
+    color: var(--white-60);
+    text-align: right;
+    @include font-size("text-sm", "regular");
+  }
+
+  .amount {
+    @include font-size("text-sm", "regular");
+    text-align: right;
+  }
+}

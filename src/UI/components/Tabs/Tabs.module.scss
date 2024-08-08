@@ -1,0 +1,54 @@
+.buttons {
+  @include spacing(margin, 24, "bottom");
+  display: flex;
+  align-items: center;
+  gap: rem(24);
+  position: relative;
+  z-index: 1;
+
+  .disableText {
+    color: var(--white-30);
+
+    svg path {
+      stroke: var(--white-30);
+    }
+  }
+
+  .disableText:hover {
+    color: var(--white-60);
+
+    svg path {
+      stroke: var(--white-60);
+    }
+  }
+
+  button {
+    @include font-size("text-md", "regular");
+    font-family: $lato;
+    padding-bottom: rem(8) !important;
+    height: auto;
+    background: none;
+    border-radius: 0;
+    padding: 0;
+    border-bottom: rem(1) solid transparent;
+    color: var(--white-60);
+    transition:
+      color 0.3s,
+      border-color 0.3s;
+
+    &:before {
+      display: none;
+    }
+
+    &:hover {
+      background: none;
+      color: var(--white);
+    }
+
+    &.isActive {
+      @include font-size("text-md", "semibold");
+      color: var(--white);
+      border-color: var(--purple-30);
+    }
+  }
+}

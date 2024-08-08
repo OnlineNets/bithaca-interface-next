@@ -1,0 +1,79 @@
+.pieContainer {
+  position: relative;
+  margin-top: 20px;
+}
+
+.waterMark {
+  position: absolute;
+  left: 7%;
+  bottom: 5%;
+}
+
+.container {
+  position: relative;
+}
+
+.legend {
+  display: flex;
+  flex-direction: column;
+  gap: rem(12);
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: rem(3);
+}
+
+.label {
+  @include font-size("text-xs", "semibold");
+  font-family: $roboto;
+  color: #9a9daa;
+}
+
+.tooltip {
+  min-width: rem(160);
+  @include spacing(padding, 10, "all");
+  border-radius: rem(8);
+  background: rgba(18, 23, 34, 1);
+  box-shadow:
+    rem(2) rem(2) rem(4) 0px rgba(0, 0, 0, 0.15),
+    0px 0px rem(4) 0px rgba(43, 46, 58, 0.15) inset,
+    0px 0px rem(15) 0px rgba(43, 46, 58, 0.15) inset;
+  backdrop-filter: blur(rem(10));
+
+  .tooltipValueContainer {
+    display: grid;
+    grid-template-columns: 10px 35px minmax(auto, auto) 1fr;
+
+    gap: rem(4);
+    margin-bottom: rem(4);
+    align-items: center;
+  }
+  p {
+    @include font-size("text-xs", "regular");
+    color: var(--white-60);
+    font-family: $lato;
+    text-transform: capitalize;
+  }
+  .value {
+    margin-left: 5px;
+    @include font-size("text-sm", "regular");
+    color: var(--white);
+    font-family: $lato;
+  }
+
+  span {
+    @include font-size("text-xs", "regular");
+    color: var(--white-60);
+    font-family: $lato;
+    display: flex;
+    align-items: center;
+    gap: rem(4);
+
+    svg {
+      height: rem(16);
+      width: rem(16);
+    }
+  }
+}

@@ -1,0 +1,121 @@
+.table {
+  display: flex;
+  flex-direction: column;
+  color: var(--white);
+}
+
+.header {
+  @include spacing(padding, 10, "left+right");
+  @include spacing(padding, 10, "bottom");
+  border-bottom: rem(1) solid var(--white-rgba-10);
+  display: flex;
+  align-items: center;
+  font-family: $roboto;
+  color: var(--white-60);
+  background: none;
+  box-shadow: none;
+  backdrop-filter: none;
+
+  .cell {
+    display: flex;
+    align-items: center;
+    position: relative;
+    gap: rem(6);
+    @include font-size("text-xs", "regular");
+    width: calc(100% / 4);
+
+    &:last-child {
+      white-space: nowrap;
+    }
+
+    &:nth-child(3),
+    &:nth-child(4) {
+      justify-content: flex-end;
+    }
+
+    @include breakpoint(tablet) {
+      @include font-size("text-xxs", "regular");
+    }
+  }
+
+  @include breakpoint(tablet) {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+.row {
+  @include spacing(padding, 10, "all");
+  border-bottom: rem(1) solid var(--white-rgba-10);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  .cell {
+    @include font-size("text-md", "regular");
+    font-family: $roboto;
+    display: flex;
+    flex: 1;
+    width: calc(100% / 4);
+
+    &:nth-child(2) {
+      display: flex;
+      align-items: center;
+      gap: rem(10);
+    }
+
+    &:nth-child(3),
+    &:nth-child(4) {
+      justify-content: flex-end;
+    }
+
+    @include breakpoint(tablet) {
+      @include font-size("text-sm", "regular");
+
+      svg {
+        height: rem(16);
+        width: rem(16);
+      }
+    }
+
+    @include breakpoint(mobile) {
+      @include font-size("text-xs", "regular");
+
+      svg {
+        display: none;
+      }
+    }
+  }
+
+  @include breakpoint(tablet) {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+.emptyTable {
+  @include font-size("text-xs", "regular");
+  @include spacing(padding, 16, "top");
+  text-align: center;
+}
+
+.sort {
+  padding: 0;
+  background: none;
+  height: auto;
+  border-radius: rem(4);
+
+  &:before {
+    display: none;
+  }
+
+  &:hover {
+    background: var(--white-5);
+  }
+}
+
+.sort {
+  svg path {
+    stroke: inherit;
+  }
+}

@@ -1,0 +1,80 @@
+.wrapper {
+  position: relative;
+
+  h1 {
+    font-family: $lato;
+    font-size: rem(16);
+    font-weight: 600;
+    margin-bottom: rem(8);
+
+    @include breakpoint2(mobile) {
+      font-size: rem(14);
+    }
+  }
+
+  .tableContainer {
+    padding: rem(24) rem(32);
+
+    @include breakpoint2(mobile) {
+      padding: rem(12) rem(16);
+    }
+
+    &.offline {
+      filter: blur(4px);
+    }
+  }
+
+  .tablesWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: rem(10);
+  }
+
+  .optionsWrapper {
+    display: flex;
+    gap: rem(10);
+
+    @include breakpoint2(desktop) {
+      flex-direction: column;
+    }
+
+    .tableContainer {
+      flex: 1;
+    }
+  }
+
+  .offlineContainer {
+    position: absolute;
+    width: 100%;
+    top: rem(50);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding: rem(48) rem(32);
+
+    @include breakpoint2(tablet) {
+      top: rem(102);
+    }
+    @include breakpoint2(mobile) {
+      top: rem(148);
+    }
+
+    p {
+      color: var(--white);
+      font-size: rem(16);
+
+      @include breakpoint2(mobile) {
+        font-size: rem(14);
+      }
+    }
+
+    .connectButton {
+      width: auto;
+      height: auto;
+      margin-top: rem(32);
+      font-size: rem(12);
+      padding: rem(10) rem(16);
+    }
+  }
+}

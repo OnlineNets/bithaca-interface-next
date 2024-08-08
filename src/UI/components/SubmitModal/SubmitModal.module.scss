@@ -1,0 +1,40 @@
+.confirmButton {
+  color: var(--white);
+  height: rem(34);
+  width: 100%;
+  margin-bottom: rem(24);
+}
+
+.toggleWrapper {
+  display: flex;
+  justify-content: right;
+  margin-right: -70px;
+  margin-bottom: 10px;
+}
+
+.valueWrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: rem(4);
+  justify-content: flex-end;
+}
+
+.amountLabel {
+  @include font-size("text-md", "regular");
+  font-family: $roboto;
+  color: var(--white);
+}
+
+.currencyLabel {
+  @include font-size("text-sm", "regular");
+  font-family: $roboto;
+  color: var(--white-60);
+}
+
+.divider {
+  height: rem(1);
+  width: 100%;
+  background-color: var(--white-rgba-20);
+  margin-bottom: rem(16);
+}

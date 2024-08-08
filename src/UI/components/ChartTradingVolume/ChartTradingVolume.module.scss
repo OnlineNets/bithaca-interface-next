@@ -1,0 +1,84 @@
+.container {
+  position: relative;
+
+  &:before {
+    content: url("../../../assets/ithaca_logo.svg");
+    position: absolute;
+    bottom: rem(100);
+    left: rem(50);
+    opacity: 0.2;
+    z-index: 2;
+    pointer-events: none;
+  }
+}
+
+.chartTradeCountLabel {
+  fill: #9d9daa;
+  font-size: 12px;
+}
+
+.pieContainer {
+  position: relative;
+  margin-top: 20px;
+}
+
+.waterMark {
+  position: absolute;
+  left: 7%;
+  bottom: 5%;
+}
+
+.container {
+  position: relative;
+}
+
+.legend {
+  display: flex;
+  flex-direction: row;
+  gap: rem(12);
+  top: rem(20);
+  position: relative;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: rem(3);
+}
+
+.label {
+  @include font-size("text-xs", "semibold");
+  font-family: $roboto;
+  color: #9a9daa;
+}
+
+.tooltip {
+  min-width: 155px;
+  @include spacing(padding, 10, "all");
+  border-radius: rem(8);
+  background: rgba(18, 23, 34, 1);
+  box-shadow:
+    rem(2) rem(2) rem(4) 0px rgba(0, 0, 0, 0.15),
+    0px 0px rem(4) 0px rgba(43, 46, 58, 0.15) inset,
+    0px 0px rem(15) 0px rgba(43, 46, 58, 0.15) inset;
+
+  p {
+    @include spacing(margin, 8, "bottom");
+    @include font-size("text-xs", "regular");
+    color: var(--white-60);
+    font-family: $lato;
+  }
+
+  .value {
+    @include spacing(margin, 8, "bottom");
+    @include font-size("text-sm", "regular");
+    color: var(--white);
+    font-family: $lato;
+  }
+
+  h3 {
+    @include font-size("text-xs", "medium");
+    margin-bottom: rem(5);
+    font-family: $lato;
+  }
+}

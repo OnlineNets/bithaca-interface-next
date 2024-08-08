@@ -1,0 +1,84 @@
+.tncModal {
+  width: rem(358);
+  padding: 0px;
+  margin: 0px;
+  text-align: center;
+  h4 {
+    @include font-size("text-md", "semibold");
+    font-family: $lato;
+    @include breakpoint(tablet) {
+      @include font-size("text-lg", "semibold");
+    }
+  }
+  @include breakpoint(tablet) {
+    width: rem(500);
+  }
+}
+.modalHeaderContainer {
+  display: none;
+}
+.container {
+  margin-top: 30px;
+  padding-left: 20px;
+  padding-right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: rem(24);
+  font-family: $roboto;
+  line-height: 1rem;
+  .title {
+    font-family: $lato;
+    font-weight: 500;
+    font-size: 1.5rem;
+  }
+  .description {
+    color: var(--white-60);
+    font-family: $roboto;
+    font-size: rem(18);
+    line-height: rem(22);
+    font-weight: 400;
+    align-items: center;
+  }
+  .pointCont {
+    padding: 20px;
+    font-family: $lato;
+    font-weight: 500;
+    font-size: rem(30);
+    color: var(--green-30);
+    background: linear-gradient(to bottom, #5ee19205, #5ee19225);
+    border-radius: 10px; /* Adjust as needed */
+    padding: 30px; /* Adjust as needed */
+    display: inline-block;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  .buttonContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: rem(8);
+    margin: 30px;
+    margin-top: 0px;
+    background-color: transparent;
+  }
+
+  .button {
+    &:before {
+      border-radius: 25px;
+    }
+    max-width: 150px;
+    padding: 25px 40px;
+    font-family: $lato;
+    font-size: rem(16);
+    border-radius: 25px;
+  }
+  .primaryButton {
+    margin-top: 0px;
+  }
+}
+.welcomeImage {
+  width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+}

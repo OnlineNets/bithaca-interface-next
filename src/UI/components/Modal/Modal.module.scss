@@ -1,0 +1,156 @@
+.modal {
+  padding: rem(10);
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.2) 100%), rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(rem(40));
+  width: rem(500);
+  color: var(--white);
+  border-radius: rem(30);
+  cursor: default;
+  position: relative;
+
+  @media (min-width: $mobile) {
+    padding: rem(20);
+  }
+
+  &:before {
+    content: "";
+    position: absolute;
+    border-radius: rem(30);
+    top: -(rem(0.5));
+    bottom: -(rem(0.5));
+    right: -(rem(0.5));
+    left: -(rem(0.5));
+    z-index: -1;
+    border: rem(0.5) solid transparent;
+    background: linear-gradient(180deg, #ffffff, rgba(255, 255, 255, 0)) border-box;
+    opacity: 0.2;
+    -webkit-mask:
+      linear-gradient(#fff 0 0) padding-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: destination-out;
+    mask-composite: exclude;
+  }
+
+  &:after {
+    content: "";
+    background-image: url("../../../assets/noise.png");
+    background-repeat: repeat;
+    position: absolute;
+    opacity: 0.4;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border-radius: rem(30);
+  }
+}
+
+.modal > * {
+  z-index: 1;
+  position: relative;
+}
+
+.modalBackdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 6;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(rem(5));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-y: hidden;
+  cursor: pointer;
+}
+
+.modalHeader,
+.modalContent,
+.modalFooter {
+  width: 100%;
+}
+
+.modalHeader {
+  @include spacing(margin, 24, "bottom");
+}
+
+.modalHeader {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  h4 {
+    font-family: $lato;
+    @include font-size("text-lg", "semibold");
+  }
+}
+
+.modalFooter {
+  display: flex;
+  justify-content: center;
+}
+
+.buttonClose {
+  transition: transform 0.5s;
+  display: flex;
+  background: none;
+  padding: 0;
+  width: rem(24);
+  height: rem(24);
+
+  &:before {
+    display: none;
+  }
+
+  svg {
+    height: rem(24);
+    width: rem(24);
+  }
+}
+
+.buttonClose:hover {
+  transform: rotate(180deg);
+  background: none;
+}
+
+.confirmButton {
+  background: #360e5f;
+  color: var(--white);
+  gap: rem(4);
+  height: rem(34);
+  border-radius: rem(16);
+
+  &:hover {
+    background: #47117e;
+  }
+
+  &:before {
+    content: "";
+    display: block;
+    position: absolute;
+    border-radius: rem(16);
+    top: -(rem(0.5));
+    bottom: -(rem(0.5));
+    right: -(rem(0.5));
+    left: -(rem(0.5));
+    z-index: -1;
+    background: linear-gradient(var(--purple-30) 0%, rgba(86, 17, 152, 0) 100%);
+  }
+  width: 100%;
+}
+
+.buttonLoading {
+  cursor: default;
+
+  &:hover {
+    background: #360e5f;
+  }
+}

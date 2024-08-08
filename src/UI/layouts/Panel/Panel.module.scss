@@ -1,0 +1,82 @@
+.panel {
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.2) 100%), rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10rem);
+  position: relative;
+  border-radius: rem(30);
+
+  ::-webkit-scrollbar {
+    display: none;
+
+    @media screen and (max-width: map-get($breakpoints, "tablet2")) {
+      display: block;
+      height: rem(8);
+    }
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--white-60);
+    border-radius: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--white-20) !important;
+    border-radius: 6px;
+  }
+
+  @include breakpoint(mobile) {
+    border-radius: rem(20);
+  }
+
+  &:before {
+    content: "";
+    position: absolute;
+    border-radius: rem(30);
+    top: -(rem(0.5));
+    bottom: -(rem(0.5));
+    right: -(rem(0.5));
+    left: -(rem(0.5));
+    z-index: -1;
+    border: rem(0.5) solid transparent;
+    background: linear-gradient(180deg, #ffffff, rgba(255, 255, 255, 0)) border-box;
+    opacity: 0.2;
+    -webkit-mask:
+      linear-gradient(#fff 0 0) padding-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: destination-out;
+    mask-composite: exclude;
+
+    @include breakpoint(mobile) {
+      border-radius: rem(20);
+    }
+  }
+
+  &:after {
+    content: "";
+    background-image: url("../../../assets/noise.png");
+    background-repeat: repeat;
+    position: absolute;
+    opacity: 0.4;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border-radius: rem(30);
+
+    @include breakpoint(mobile) {
+      border-radius: rem(20);
+    }
+  }
+
+  h3 {
+    @include spacing(margin, 24, "bottom");
+    color: var(--white);
+    font-family: $lato;
+    z-index: 1;
+    position: relative;
+  }
+}
+
+.panel > * {
+  z-index: 1;
+  position: relative;
+}

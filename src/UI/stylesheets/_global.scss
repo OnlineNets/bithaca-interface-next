@@ -1,0 +1,72 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import "colours";
+@import "mixins";
+@import "utilities";
+@import "variables";
+@import "sections";
+
+@import "base/base";
+@import "base/reset";
+@import "base/typography";
+@import "base/datepicker";
+
+// Global overwritten styles
+.recharts-layer {
+  outline: none !important;
+}
+
+.recharts-layer path:focus {
+  outline: none !important;
+}
+
+.Toastify * {
+  font-family: "Lato", sans-serif !important;
+}
+
+.Toastify .Toastify__toast-container {
+  z-index: 2147483647;
+  width: 400px;
+}
+
+@media (max-width:500px) {
+  .Toastify .Toastify__toast-container {
+    width: calc(100% - 30px) !important;
+    bottom: var(--toastify-toast-bottom) !important;
+    right: var(--toastify-toast-right) !important;
+    left: unset !important;
+  }
+}
+
+.Toastify__toast-body {
+  padding: 1px !important;
+  border-radius: 16px !important;
+}
+
+.Toastify .Toastify__toast-container > div {
+  padding: 0 !important;
+  border-radius: 16px !important;
+  background: linear-gradient(180deg, rgba(63, 66, 74, 1), rgba(22, 26, 36, 1)) !important;
+}
+
+.Toastify__close-button {
+  position: absolute !important;
+  color: white !important;
+  opacity: 0.5 !important;
+  top: 20px !important;
+  right: 20px !important;
+  > svg {
+    width: 24px !important;
+    height: 24px !important;
+  }
+}
+
+.Toastify__progress-bar--wrp {
+  height: 0px !important;
+}
+
+[data-rk] .ju367vf0 {
+  display: none;
+}

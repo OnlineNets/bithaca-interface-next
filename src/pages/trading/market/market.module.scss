@@ -1,0 +1,10 @@
+@include breakpoint(desktop) {
+  .tabCard {
+    margin-top: rem(24);
+    height: rem(540);
+
+    @include breakpoint(desktop) {
+      margin-top: rem(39);
+    }
+  }
+}

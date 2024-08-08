@@ -1,0 +1,32 @@
+.dot {
+  width: rem(8);
+  height: rem(8);
+  border-radius: 50%;
+  box-shadow: 0px rem(4) rem(4) rgba(0, 0, 0, 0.25);
+  border: rem(0.2) solid rgba(255, 255, 255, 0.2);
+}
+
+$colors: (
+  leg1: #5ee192,
+  leg2: #a855f7,
+  leg3: #b5b5f8,
+  leg4: #ff772a,
+  leg5: #7ad136,
+  leg6: #ff3f57,
+  leg7: #6545a4,
+  leg8: #18b5b5,
+  leg9: #4421af,
+  leg10: #d7658b,
+  leg11: #7c1158,
+  leg12: #786028,
+  leg13: #50e991,
+  leg14: #b33dc6,
+  leg15: #00836e,
+  leg16: #ffffff,
+);
+
+@each $name, $color in $colors {
+  .#{$name} {
+    background-color: $color;
+  }
+}

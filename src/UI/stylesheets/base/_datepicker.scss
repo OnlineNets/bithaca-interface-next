@@ -1,0 +1,58 @@
+.myToday {
+  color: var(--white) !important;
+}
+
+.rdp-cell {
+  width: rem(32) !important;
+  height: rem(32) !important;
+}
+.rdp-day:not(.rdp-day_selected) {
+  color: var(--white-60) !important;
+}
+
+.rdp-weeknumber,
+.rdp-day {
+  width: rem(32) !important;
+  height: rem(32) !important;
+}
+
+.rdp-caption_label {
+  font-size: rem(14) !important;
+  color: var(--white) !important;
+  font-family: $roboto;
+  padding: 0 !important;
+}
+
+.rdp-button:hover:not([disabled]):not(.rdp-day_selected) {
+  background-color: transparent !important;
+  font-size: rem(12) !important;
+}
+
+.rdp-day_selected,
+.rdp-day_selected:focus-visible,
+.rdp-day_selected:hover {
+  background-color: var(--green-20) !important;
+  border-radius: rem(12) !important;
+  color: var(--white) !important;
+}
+
+.rdp-button[disabled]:not(.rdp-day_selected) {
+  color: var(--white-60) !important;
+  opacity: 1 !important;
+}
+
+.rdp-day_range_middle {
+  background-color: transparent !important;
+}
+
+.rdp-nav_button {
+  width: rem(32) !important;
+  height: rem(32) !important;
+}
+
+.rdp-head_cell {
+  color: var(--white);
+  text-transform: none !important;
+  font-size: rem(12) !important;
+  font-weight: normal !important;
+}

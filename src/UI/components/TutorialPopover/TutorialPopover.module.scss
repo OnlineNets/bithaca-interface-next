@@ -1,0 +1,118 @@
+.PopoverContent {
+  border-radius: 4px;
+  padding: 20px;
+  width: 300px;
+  background: rgb(84, 194, 128);
+  background: linear-gradient(0deg, rgba(84, 194, 128, 1) 0%, rgba(71, 128, 94, 1) 100%);
+  box-shadow:
+    hsl(206 22% 7% / 35%) 0px 10px 38px -10px,
+    hsl(206 22% 7% / 20%) 0px 10px 20px -15px;
+  animation-duration: 400ms;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+  border: 2px rgb(84, 194, 128);
+  li {
+    margin: 0;
+  }
+}
+
+.large {
+  width: 400px !important;
+}
+.PopoverContent:focus {
+  box-shadow:
+    hsl(206 22% 7% / 35%) 0px 10px 38px -10px,
+    hsl(206 22% 7% / 20%) 0px 10px 20px -15px,
+    0 0 0 2px var(--violet-7);
+}
+.PopoverContent[data-state="open"][data-side="top"] {
+  animation-name: slideDownAndFade;
+}
+.PopoverContent[data-state="open"][data-side="right"] {
+  animation-name: slideLeftAndFade;
+}
+.PopoverContent[data-state="open"][data-side="bottom"] {
+  animation-name: slideUpAndFade;
+}
+.PopoverContent[data-state="open"][data-side="left"] {
+  animation-name: slideRightAndFade;
+}
+
+.PopoverArrow {
+  left: 0px;
+  fill: rgba(71, 128, 94, 1);
+}
+
+.Fieldset {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.message {
+  @include font-size("text-xs", "regular");
+  color: var(--white);
+  margin-bottom: rem(10);
+}
+
+.title {
+  @include font-size("text-sm", "semibold");
+  color: var(--white);
+  // white-space: nowrap;
+  margin-bottom: rem(10);
+}
+
+@keyframes slideUpAndFade {
+  from {
+    opacity: 0;
+    transform: translateY(2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideRightAndFade {
+  from {
+    opacity: 0;
+    transform: translateX(-2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideDownAndFade {
+  from {
+    opacity: 0;
+    transform: translateY(-2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideLeftAndFade {
+  from {
+    opacity: 0;
+    transform: translateX(2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.skipButton {
+  color: var(--green-40);
+  cursor: pointer;
+  margin-right: rem(20);
+  margin-top: rem(10);
+  @include font-size("text-sm", "semi-bold");
+  &:hover {
+    color: var(--green-30);
+  }
+}

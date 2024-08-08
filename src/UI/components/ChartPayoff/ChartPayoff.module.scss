@@ -1,0 +1,96 @@
+.tooltipLabel {
+  @include font-size("text-xxs", "semibold");
+  font-family: $roboto;
+  color: var(--white-60);
+  text-align: center;
+}
+
+.tooltipValue {
+  @include font-size("text-sm", "regular");
+  color: var(--white);
+  font-family: $roboto;
+  text-align: center;
+  margin-top: rem(3);
+}
+
+.contentList {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: rem(10);
+  margin-top: rem(10);
+}
+
+.unlimited {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: rem(5);
+
+  p {
+    font-family: $roboto;
+    @include font-size("text-xs", "regular");
+    @media (max-width: $desktop) {
+      @include font-size("text-xxs", "medium");
+    }
+  }
+
+  h3 {
+    font-family: $roboto;
+    @include font-size("text-xs", "semibold");
+    color: var(--white);
+    margin: 0 !important;
+    @media (max-width: $desktop) {
+      @include font-size("text-xxs", "medium");
+    }
+  }
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: rem(8);
+  margin-top: rem(24);
+}
+
+.badge {
+  @include font-size("text-xs", "medium");
+  @include spacing(padding, 4, "top+bottom");
+  @include spacing(padding, 8, "left+right");
+  background: var(--white-10);
+  border-radius: rem(10);
+}
+
+.key {
+  display: flex;
+  align-items: center;
+  gap: rem(4);
+  cursor: pointer;
+  p {
+    @include font-size("text-xs", "regular");
+    font-family: $roboto;
+    color: var(--white);
+  }
+
+  &.badge p {
+    color: var(--white);
+  }
+}
+
+.redColor {
+  color: var(--red-20);
+}
+
+.greenColor {
+  color: var(--green-30);
+}
+
+.whiteColor {
+  color: var(--white);
+}
+
+.hide {
+  display: none;
+}

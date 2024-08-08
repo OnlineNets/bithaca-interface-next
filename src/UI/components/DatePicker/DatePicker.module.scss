@@ -1,0 +1,143 @@
+.dateRangePickerContainer {
+  display: flex;
+  align-items: center;
+  padding: rem(7) rem(10);
+  gap: rem(4);
+  border-radius: rem(12);
+  min-width: rem(167);
+  height: rem(34);
+  cursor: pointer;
+  justify-content: space-between;
+  // background: var(--gray-rgba-40);
+  background: var(--gray-rgba-40);
+  transition: $transition_all;
+  position: relative;
+  max-width: rem(188);
+
+  &:before {
+    content: "";
+    display: block;
+    position: absolute;
+    border-radius: rem(12);
+    top: -(rem(0.5));
+    bottom: -(rem(0.5));
+    right: -(rem(0.5));
+    left: -(rem(0.5));
+    z-index: -1;
+    border: rem(0.5) solid transparent;
+    background: linear-gradient(0deg, #ffffff, rgba(255, 255, 255, 0) 80%) border-box;
+    opacity: 0.2;
+    -webkit-mask:
+      linear-gradient(#fff 0 0) padding-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: destination-out;
+    mask-composite: exclude;
+  }
+}
+
+.dateSinglePickerContainer {
+  display: flex;
+  align-items: center;
+  padding: rem(7) rem(10);
+  gap: rem(4);
+  min-width: rem(100);
+  height: rem(34);
+  cursor: pointer;
+  justify-content: space-between;
+  background: var(--gray-rgba-40);
+  transition: $transition_all;
+  position: relative;
+  max-width: rem(110);
+
+  &:before {
+    content: "";
+    display: block;
+    position: absolute;
+    border-radius: rem(12);
+    top: -(rem(0.5));
+    bottom: -(rem(0.5));
+    right: -(rem(0.5));
+    left: -(rem(0.5));
+    z-index: -1;
+    border: rem(0.5) solid transparent;
+    background: linear-gradient(0deg, #ffffff, rgba(255, 255, 255, 0) 80%) border-box;
+    opacity: 0.2;
+    -webkit-mask:
+      linear-gradient(#fff 0 0) padding-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: destination-out;
+    mask-composite: exclude;
+  }
+}
+
+.dateInput {
+  @include font-size("text-md", "regular");
+  color: var(--white);
+  font-family: $roboto;
+
+  span:last-child {
+    margin-right: rem(1);
+  }
+}
+
+.dateBlock {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  background: var(--background-dark);
+  border-radius: rem(8);
+  z-index: 999999;
+}
+
+.dateRangeContainer {
+  display: flex;
+  padding: rem(20) rem(20) rem(12) rem(20);
+  gap: rem(22);
+}
+
+.subContainer {
+  display: flex;
+  flex-direction: column;
+
+  & p {
+    @include font-size("text-xs", "regular");
+    color: var(--white-60);
+    font-family: $roboto;
+  }
+}
+
+.datePicker {
+  @include font-size("text-xs", "regular");
+  color: var(--white-60);
+  font-family: $roboto;
+  margin: 0;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: rem(0) rem(20) rem(20) rem(20);
+  gap: rem(24);
+}
+
+.cancelButton {
+  @include font-size("text-xs", "bold");
+  color: var(--green-30);
+  font-family: $roboto;
+  cursor: pointer;
+}
+
+.applyButton {
+  @include font-size("text-xs", "bold");
+  color: var(--white);
+  background-color: rgba(94, 225, 146, 0.6);
+  font-family: $roboto;
+  padding: rem(10) rem(29);
+  border-radius: rem(18);
+  cursor: pointer;
+}
+
+.isHidden {
+  display: none;
+}

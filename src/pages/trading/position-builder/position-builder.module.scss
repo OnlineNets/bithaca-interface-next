@@ -1,0 +1,103 @@
+.title {
+  color: var(--white);
+  margin-top: 24px;
+}
+
+.positionTitle {
+  margin-bottom: 18px;
+  margin-top: 24px;
+  color: var(--white);
+  & p {
+    color: var(--white-rgba-20);
+  }
+}
+
+.positionBuilder {
+  margin-top: 15px;
+  height: 257px;
+  background-color: rgba(28, 32, 40, 0.4);
+  border-radius: 30px;
+}
+
+.summary {
+  height: 80px;
+  margin-top: 118px;
+  background-color: rgba(28, 32, 40, 0.4);
+  border-radius: 30px;
+}
+
+.strategyPanel {
+  margin-left: 15px;
+}
+
+.strategyWrapper {
+  padding: 20px;
+  z-index: 10;
+  position: relative;
+}
+
+.summaryWrapper {
+  margin-top: 120px;
+}
+
+.tableWrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+
+  svg {
+    max-width: rem(328);
+  }
+}
+
+.chartWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: rem(8);
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  p {
+    @include font-size("text-sm", "regular");
+    font-family: $lato;
+  }
+}
+
+.divider {
+  margin-bottom: 20px;
+  margin-top: 20px;
+  height: 1px;
+  background-color: var(--white);
+  opacity: 0.2;
+}
+
+.currencyLabel {
+  @include font-size("text-sm", "regular");
+  color: var(--white-60);
+  margin-left: 4px;
+}
+
+.amountLabel {
+  @include font-size("text-sm", "regular");
+  color: var(--white);
+  margin-right: 4px;
+}
+
+.option {
+  display: none;
+}
+
+.option__active {
+  display: initial;
+}
+.currency__info {
+  display: flex;
+  width: 50%;
+  @include breakpoint(tablet) {
+    width: auto;
+  }
+}

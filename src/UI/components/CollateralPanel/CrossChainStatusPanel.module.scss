@@ -1,0 +1,213 @@
+.container {
+  position: absolute !important;
+  top: rem(92);
+  right: 0;
+  width: rem(500);
+  height: 100%;
+  z-index: 999999;
+  padding: rem(20);
+
+  & > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    @include spacing("margin", 12, "bottom");
+  }
+
+  .title {
+    font-family: $lato;
+    @include font-size("text-md", "normal");
+  }
+
+  @media (max-width: $mobile) {
+    width: 100vw;
+    top: rem(88);
+  }
+}
+
+.buttonClose {
+  transition: transform 0.5s;
+  display: flex;
+  background: none;
+  padding: 0;
+  width: rem(24);
+  height: rem(24);
+
+  &:before {
+    display: none;
+  }
+
+  svg {
+    height: rem(24);
+    width: rem(24);
+  }
+}
+
+.buttonClose:hover {
+  transform: rotate(180deg);
+  background: none;
+}
+
+.transactionStatusContainer {
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(18, 23, 34, 0.9);
+  padding: rem(15);
+  border-radius: rem(15);
+
+  .header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    @include spacing("margin", 30, "bottom");
+
+    &:before {
+      content: "";
+      position: absolute;
+      border-radius: rem(30);
+      top: -(rem(0.5));
+      bottom: -(rem(0.5));
+      right: -(rem(0.5));
+      left: -(rem(0.5));
+      z-index: -1;
+      border: rem(0.5) solid transparent;
+      background: linear-gradient(180deg, #ffffff, rgba(255, 255, 255, 0)) border-box;
+      opacity: 0.2;
+      -webkit-mask:
+        linear-gradient(#fff 0 0) padding-box,
+        linear-gradient(#fff 0 0);
+      -webkit-mask-composite: destination-out;
+      mask-composite: exclude;
+
+      @include breakpoint(mobile) {
+        border-radius: rem(20);
+      }
+    }
+
+    .title {
+      font-family: $lato;
+      @include font-size("text-sm", "normal");
+    }
+
+    .timestamp {
+      display: flex;
+      gap: rem(8);
+
+      color: var(--white-60);
+      @include font-size("text-xs", "normal");
+    }
+  }
+
+  .stepsContainer {
+    display: flex;
+    width: 100%;
+  }
+
+  .completedStep {
+    flex: 1;
+    padding: 0rem;
+    position: relative;
+    text-align: center;
+    display: block;
+
+    &:before {
+      background-color: var(--green-20);
+      content: " ";
+      height: 0.125rem;
+      right: 50%;
+      position: absolute;
+      top: rem(11);
+      width: 100%;
+      z-index: 2;
+    }
+
+    &:first-child:before {
+      content: "";
+      display: none;
+    }
+
+    .numberContainer {
+      display: block;
+      position: relative;
+      z-index: 3;
+
+      span {
+        align-items: center;
+        background-color: var(--green-20);
+        border: 1px solid var(--green-20);
+        border-radius: 50%;
+        color: #394050;
+        font-weight: 700;
+        font-size: rem(10);
+        display: inline-flex;
+        height: rem(22);
+        width: rem(22);
+        justify-content: center;
+        line-height: 2.5rem;
+        position: relative;
+        text-align: center;
+        z-index: 3;
+      }
+    }
+
+    .stepName {
+      font-size: rem(12);
+      margin-top: rem(10);
+      color: var(--green-20);
+    }
+  }
+
+  .incompleteStep {
+    flex: 1;
+    padding: 0rem;
+    position: relative;
+    text-align: center;
+    display: block;
+
+    &:before {
+      background-color: var(--white-30);
+      content: " ";
+      height: 0.125rem;
+      right: 50%;
+      position: absolute;
+      top: rem(11);
+      width: 100%;
+      z-index: 2;
+    }
+
+    &:first-child:before {
+      content: "";
+      display: none;
+    }
+
+    .numberContainer {
+      display: block;
+      position: relative;
+      z-index: 3;
+
+      span {
+        align-items: center;
+        background-color: var(--white-30);
+        border: 1px solid var(--white-30);
+        border-radius: 50%;
+        color: #394050;
+        font-weight: 700;
+        font-size: rem(10);
+        display: inline-flex;
+        height: rem(22);
+        width: rem(22);
+        justify-content: center;
+        line-height: 2.5rem;
+        position: relative;
+        text-align: center;
+        z-index: 3;
+      }
+    }
+
+    .stepName {
+      font-size: rem(12);
+      margin-top: rem(10);
+      color: var(--white-30);
+    }
+  }
+}

@@ -1,0 +1,195 @@
+@mixin track-styles {
+  appearance: none;
+  background: transparent;
+  border: transparent;
+}
+
+@mixin thumb-styles {
+  appearance: none;
+  pointer-events: all;
+  width: rem(8);
+  height: rem(8);
+  border-radius: rem(0);
+  border: 0 none;
+  cursor: grab;
+  background-color: var(--white);
+
+  &:active {
+    cursor: grabbing;
+  }
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: calc(100% - rem(50));
+  margin: auto;
+  height: rem(30);
+}
+
+.containerExtend {
+  display: flex;
+  flex-direction: column;
+  width: calc(100% - rem(25));
+  height: rem(30);
+  position: relative;
+}
+
+.containerExtendRange {
+  display: flex;
+  flex-direction: column;
+  width: calc(100% - rem(50));
+  margin: auto;
+  height: rem(30);
+}
+
+.containerNoLabels {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: rem(55);
+  width: 100%;
+  margin-bottom: rem(10);
+}
+
+.inputWrapper {
+  width: calc(100% + #{rem(8)});
+  margin: 0 calc(#{rem(8)} / -2);
+  position: absolute;
+}
+
+.controlWrapper {
+  width: 100%;
+  position: absolute;
+  cursor: pointer;
+}
+
+.input {
+  position: absolute;
+  width: 100%;
+  pointer-events: none;
+  appearance: none;
+  height: 100%;
+  opacity: 0;
+  z-index: 3;
+  padding: 0;
+
+  &::-ms-track {
+    @include track-styles;
+  }
+
+  &::-moz-range-track {
+    @include track-styles;
+  }
+
+  &:focus::-webkit-slider-runnable-track {
+    @include track-styles;
+  }
+
+  &::-ms-thumb {
+    @include thumb-styles;
+  }
+
+  &::-moz-range-thumb {
+    @include thumb-styles;
+  }
+
+  &::-webkit-slider-thumb {
+    @include thumb-styles;
+  }
+}
+
+.railExtendRange {
+  position: absolute;
+  width: calc(100% + rem(50));
+  top: 50%;
+  left: rem(-25);
+  transform: translateY(-50%);
+  height: rem(1.5);
+  border-radius: rem(4);
+  background-color: var(--white-30);
+}
+
+.railExtend {
+  position: absolute;
+  width: calc(100% + rem(25));
+  top: 50%;
+  left: rem(0);
+  transform: translateY(-50%);
+  height: rem(1.5);
+  border-radius: rem(4);
+  background-color: var(--white-30);
+}
+
+.rail {
+  position: absolute;
+  width: calc(100%);
+  top: 50%;
+  transform: translateY(-50%);
+  height: rem(1.5);
+  border-radius: rem(4);
+  background-color: var(--white-30);
+}
+
+.innerRail {
+  position: absolute;
+  height: 100%;
+  background-color: var(--green-20);
+  box-shadow: 0 0 rem(10) var(--green-30);
+  border-radius: rem(4);
+}
+
+.control {
+  width: rem(8);
+  height: rem(8);
+  border-radius: 50%;
+  position: absolute;
+  background: var(--white);
+  top: 50%;
+  margin-left: calc(#{rem(8)} / -2);
+  transform: translate3d(0, -50%, 0);
+  z-index: 2;
+}
+
+.hide {
+  display: none !important;
+}
+
+.labelContainer {
+  position: absolute;
+  display: flex;
+  top: rem(10);
+  width: 100%;
+}
+
+.labelItem {
+  position: absolute;
+  font-family: $lato;
+  @include font-size("text-xxs", "regular");
+  color: var(--white-60);
+  cursor: pointer;
+}
+
+.highlight {
+  color: var(--white);
+}
+
+.rightShift {
+  right: rem(10);
+}
+
+.sliderEffect {
+  position: absolute;
+  width: 100%;
+  height: rem(20);
+  bottom: rem(20);
+  cursor: pointer !important;
+  z-index: 100;
+  top: rem(-22);
+}

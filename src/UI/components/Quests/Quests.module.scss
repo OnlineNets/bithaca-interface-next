@@ -1,0 +1,198 @@
+.container {
+  height: 100%;
+
+  h1 {
+    font-size: rem(24);
+    font-weight: 400;
+
+    @include breakpoint2(mobile) {
+      font-size: rem(18);
+    }
+  }
+
+  .filtersContainer {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    overflow-x: auto;
+
+    ::-webkit-scrollbar {
+      display: none;
+    }
+
+    display: flex;
+    -webkit-overflow-scrolling: touch;
+    gap: rem(10);
+
+    button {
+      width: auto;
+
+      &.disabled {
+        &:before {
+          content: "";
+          display: block;
+          position: absolute;
+          border-radius: rem(16);
+          top: -(rem(0.5));
+          bottom: -(rem(0.5));
+          right: -(rem(0.5));
+          left: -(rem(0.5));
+          z-index: -1;
+          background: linear-gradient(#4f4f4f 0%, rgba(79, 79, 79, 0) 100%);
+        }
+      }
+
+      &.disabled {
+        background: #24272d;
+        color: var(--white-30);
+
+        svg path {
+          stroke: var(--white-30);
+        }
+      }
+
+      &.disabled:hover {
+        background: #24272d;
+        color: var(--white-60);
+
+        svg path {
+          stroke: var(--white-60);
+        }
+      }
+    }
+  }
+
+  .comingSoon {
+    position: relative;
+
+    h1 {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      font-family: $lato;
+      font-size: rem(24);
+
+      @include breakpoint2(mobile) {
+        font-size: rem(18);
+      }
+    }
+
+    > div {
+      filter: blur(rem(3));
+      opacity: 0.5;
+      pointer-events: none;
+      user-select: none;
+    }
+  }
+  ::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #1e1e1e;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #5a5a5a;
+    border-radius: 6px;
+    border: 3px solid #1e1e1e;
+  }
+
+  ::-webkit-scrollbar-thumb:active {
+    background-color: #888;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+  }
+
+  .badgeWrapper {
+    margin-bottom: rem(12);
+  }
+
+  .questsContainer {
+    padding-right: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: rem(12);
+    margin-top: rem(28);
+    overflow: hidden;
+    max-height: 1000px;
+    overflow-y: auto;
+    height: 100%;
+
+    min-height: 600px;
+
+    .badgeWrapper {
+      padding-right: 10px;
+    }
+
+    .questCard {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: rem(140);
+      padding: rem(24) rem(32);
+      color: var(--white);
+
+      @include breakpoint2(mobile) {
+        img {
+          width: rem(40);
+          height: rem(40);
+        }
+      }
+
+      .questTextImage {
+        .badgeImage {
+          margin-right: 20px;
+        }
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+      }
+
+      .textContainer {
+        height: 100%;
+        max-width: 60%;
+
+        .title {
+          font-size: rem(18);
+          font-weight: 600;
+          margin-bottom: rem(24);
+
+          @include breakpoint2(mobile) {
+            font-size: rem(14);
+          }
+        }
+
+        .description {
+          font-size: rem(14);
+          font-weight: 600;
+
+          @include breakpoint2(mobile) {
+            font-size: rem(12);
+          }
+        }
+      }
+      .experience {
+        color: var(--green-30);
+        font-size: rem(22);
+        font-weight: 300;
+
+        @include breakpoint2(mobile) {
+          font-size: rem(16);
+        }
+      }
+    }
+  }
+
+  .showMoreContainer {
+    display: flex;
+    justify-content: center;
+
+    button {
+      margin-top: rem(24);
+    }
+  }
+}

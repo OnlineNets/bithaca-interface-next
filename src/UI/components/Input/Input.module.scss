@@ -1,0 +1,178 @@
+.input input::-webkit-outer-spin-button,
+.input input::-webkit-inner-spin-button {
+  appearance: none;
+}
+
+.input {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: rem(6);
+  width: rem(90);
+}
+
+.container {
+  @include spacing(padding, 8, "top+bottom");
+  @include spacing(padding, 10, "left+right");
+  display: flex;
+  align-items: center;
+  gap: rem(4);
+  background: var(--gray-rgba-40);
+  border-radius: rem(12);
+  transition: $transition_all;
+  position: relative;
+  height: rem(36);
+
+  &:before {
+    content: "";
+    display: block;
+    position: absolute;
+    border-radius: rem(12);
+    top: -(rem(0.5));
+    bottom: -(rem(0.5));
+    right: -(rem(0.5));
+    left: -(rem(0.5));
+    z-index: -1;
+    border: rem(0.5) solid transparent;
+    background: linear-gradient(0deg, #ffffff, rgba(255, 255, 255, 0) 80%) border-box;
+    opacity: 0.2;
+    -webkit-mask:
+      linear-gradient(#fff 0 0) padding-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: destination-out;
+    mask-composite: exclude;
+  }
+
+  &:focus-within {
+    border-color: var(--white);
+  }
+
+  input {
+    flex: 1;
+    background: none;
+    outline: 0;
+    border: 0;
+    color: var(--white);
+    width: 100%;
+    height: fit-content;
+  }
+
+  svg {
+    height: rem(16);
+    width: rem(16);
+  }
+}
+
+.label,
+.input input::placeholder {
+  color: var(--white-60);
+}
+
+.label {
+  font-family: $lato;
+  @include font-size("text-xs", "regular");
+  cursor: pointer;
+}
+
+.error {
+  .container {
+    border: rem(1) solid var(--red-20);
+  }
+}
+
+.errorMessage {
+  display: flex;
+  align-items: center;
+  gap: rem(4);
+  @include font-size("text-xxs", "regular");
+  color: var(--red-20);
+}
+
+.incrementButton {
+  height: rem(15);
+  button {
+    height: rem(15) !important;
+  }
+}
+
+.incrementWrapper {
+  width: rem(10);
+  margin-top: rem(-4);
+}
+
+.footer {
+  height: rem(14);
+  padding-left: rem(2);
+  font-size: rem(12);
+  font-style: italic;
+  color: var(--white-60);
+  // margin-top: -(rem(4)) !important;
+}
+
+.labelDropdown {
+  flex-direction: row;
+  align-items: center;
+  gap: rem(4);
+}
+
+.dropdown {
+  cursor: pointer;
+
+  &.isActive svg {
+    transform: rotate(180deg);
+  }
+}
+
+.dropdownMenu {
+  @include spacing(padding, 10, "all");
+  position: absolute;
+  top: rem(35);
+  left: 0;
+  list-style-type: none;
+  border-radius: rem(8);
+  background: var(--background-70, rgba(18, 23, 34, 0.7));
+  box-shadow:
+    rem(2) rem(2) rem(4) rem(0) rgba(0, 0, 0, 0.15),
+    rem(0) rem(0) rem(4) rem(0) rgba(43, 46, 58, 0.15) inset,
+    rem(0) rem(0) rem(15) rem(0) rgba(43, 46, 58, 0.15) inset;
+  backdrop-filter: blur(rem(10));
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  z-index: 999999;
+
+  li {
+    transition: $transition_all;
+    cursor: pointer;
+    @include font-size("text-xs", "regular");
+    font-family: $roboto;
+    color: var(--white-60);
+    border-radius: rem(3);
+    white-space: nowrap;
+    padding: rem(4) rem(5);
+
+    &:hover:not(.selected) {
+      background-color: var(--white-10);
+    }
+  }
+
+  svg {
+    height: rem(12);
+    width: rem(12);
+    margin-right: rem(4);
+  }
+
+  .selected {
+    color: var(--green-30);
+  }
+}
+
+.dropdownItem span {
+  @include font-size("text-xs", "regular");
+  margin-right: rem(1);
+
+  &:last-child {
+    margin-right: 0;
+  }
+}

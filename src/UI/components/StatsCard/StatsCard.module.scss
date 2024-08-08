@@ -1,0 +1,127 @@
+.container {
+  @include spacing(padding, 32, "left+right");
+  @include spacing(padding, 24, "top+bottom");
+
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  // gap: rem(8);
+  border-radius: rem(30);
+  background: var(
+    --gradient-d-leaderboard-card,
+    radial-gradient(100% 100% at 50.11% 100%, rgba(94, 225, 146, 0.16) 0%, rgba(94, 225, 146, 0) 100%)
+  );
+  width: 100%;
+  position: relative;
+
+  &:before {
+    content: "";
+    position: absolute;
+    border-radius: rem(30);
+    top: -(rem(0.5));
+    bottom: -(rem(0.5));
+    right: -(rem(0.5));
+    left: -(rem(0.5));
+    z-index: -1;
+    border: rem(0.5) solid transparent;
+    background: linear-gradient(180deg, #ffffff, rgba(255, 255, 255, 0)) border-box;
+    opacity: 0.2;
+    -webkit-mask:
+      linear-gradient(#fff 0 0) padding-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: destination-out;
+    mask-composite: exclude;
+  }
+
+  &:after {
+    content: "";
+    background-image: url("../../../assets/noise.png");
+    background-repeat: repeat;
+    position: absolute;
+    opacity: 0.4;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border-radius: rem(30);
+  }
+
+  > * {
+    z-index: 1;
+    position: relative;
+  }
+
+  @include breakpoint(tablet) {
+    width: calc(50% - rem(7.5));
+    border-radius: rem(20);
+
+    &:before,
+    &:after {
+      border-radius: rem(20);
+    }
+  }
+
+  @include breakpoint(mobile) {
+    @include spacing(padding, 16, "left+right");
+    @include spacing(padding, 16, "top+bottom");
+  }
+  @include breakpoint(tablet) {
+    @include spacing(padding, 20, "left+right");
+    @include spacing(padding, 20, "top+bottom");
+  }
+  @include breakpoint(desktop) {
+    @include spacing(padding, 32, "left+right");
+    @include spacing(padding, 24, "top+bottom");
+  }
+}
+
+.tooltip {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  z-index: 999999;
+
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .tooltipText {
+    width: max-content;
+    max-width: 250px;
+    visibility: hidden;
+    background-color: black;
+    color: var(--white);
+    border-radius: 6px;
+    padding: 10px;
+    @include font-size("text-sm", "regular");
+    font-family: $lato;
+
+    position: absolute;
+  }
+}
+
+.tooltip:hover .tooltipText {
+  visibility: visible;
+}
+
+.title {
+  @include font-size("text-md", "regular");
+  font-family: $lato;
+}
+
+.statsContainer {
+  display: flex;
+  align-items: center;
+  position: relative;
+
+  img {
+    position: absolute;
+    left: rem(20);
+  }
+}
+
+.stat {
+  @include font-size("text-xl", "semibold");
+  color: var(--white);
+}

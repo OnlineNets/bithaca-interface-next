@@ -1,0 +1,39 @@
+.slidingNav {
+  transition: $transition_all;
+  background: rgba(16, 19, 25, 0.8);
+  box-shadow:
+    2px 2px 4px 0px rgba(0, 0, 0, 0.15),
+    0px 0px 4px 0px rgba(43, 46, 58, 0.15) inset,
+    0px 0px 15px 0px rgba(43, 46, 58, 0.15) inset;
+  backdrop-filter: blur(10px);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: -100%;
+  transform: translate(100%);
+  z-index: 5;
+  display: flex;
+  width: 100%;
+  height: 100%;
+
+  nav {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: rem(32);
+    width: 100%;
+    padding: rem(100) rem(24) rem(60) rem(24);
+
+    a {
+      @include font-size("text-lg", "medium");
+      color: var(--white-60);
+      z-index: 6;
+    }
+  }
+}
+
+.isOpen {
+  transform: translateX(0);
+  overflow-y: scroll;
+}

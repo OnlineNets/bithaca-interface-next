@@ -1,0 +1,7 @@
+.announcement {
+  @include spacing("padding", 10, "top");
+}
+.announcement-message {
+  @include font-size("text-sm", "regular");
+  color: var(--white);
+}

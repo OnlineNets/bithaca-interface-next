@@ -1,0 +1,27 @@
+.modalSize {
+  width: rem(400);
+  padding: rem(30);
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: rem(24);
+  font-family: $roboto;
+  line-height: 1rem;
+
+  .title {
+    @include font-size("text-lg", "regular");
+    font-family: $lato;
+
+    @include breakpoint(tablet) {
+      @include font-size("text-sm", "regular");
+    }
+  }
+
+  .button {
+    flex: 1;
+    display: flex;
+    width: 100%;
+  }
+}

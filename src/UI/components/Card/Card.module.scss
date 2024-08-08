@@ -1,0 +1,418 @@
+.container {
+  @include spacing(padding, 32, "left+right");
+  @include spacing(padding, 24, "top+bottom");
+
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: rem(16);
+  border-radius: rem(30);
+  background: var(
+    --gradient-d-leaderboard-card,
+    radial-gradient(100% 100% at 50.11% 100%, rgba(94, 225, 146, 0.16) 0%, rgba(94, 225, 146, 0) 100%)
+  );
+  width: 100%;
+  position: relative;
+
+  &:before {
+    content: "";
+    position: absolute;
+    border-radius: rem(30);
+    top: -(rem(0.5));
+    bottom: -(rem(0.5));
+    right: -(rem(0.5));
+    left: -(rem(0.5));
+    z-index: -1;
+    border: rem(0.5) solid transparent;
+    background: linear-gradient(180deg, #ffffff, rgba(255, 255, 255, 0)) border-box;
+    opacity: 0.2;
+    -webkit-mask:
+      linear-gradient(#fff 0 0) padding-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: destination-out;
+    mask-composite: exclude;
+  }
+
+  &:after {
+    content: "";
+    background-image: url("../../../assets/noise.png");
+    background-repeat: repeat;
+    position: absolute;
+    opacity: 0.4;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border-radius: rem(30);
+  }
+
+  > * {
+    z-index: 1;
+    position: relative;
+  }
+
+  p {
+    @include font-size("text-md", "semibold");
+    font-family: $lato;
+
+    @include breakpoint(tablet) {
+      @include font-size("text-sm", "semibold");
+    }
+  }
+
+  @include breakpoint(tablet) {
+    width: calc(50% - rem(7.5));
+    border-radius: rem(20);
+
+    &:before,
+    &:after {
+      border-radius: rem(20);
+    }
+  }
+}
+
+.address {
+  display: flex;
+  align-items: center;
+  gap: rem(10);
+
+  p {
+    @include font-size("text-sm", "regular");
+
+    @include breakpoint(tablet) {
+      @include font-size("text-xs", "regular");
+    }
+  }
+}
+
+.data {
+  color: var(--white-60);
+  .colorGreen {
+    color: var(--green-20);
+  }
+
+  .colorRed {
+    color: var(--green-20);
+  }
+  .value {
+    @include font-size("text-lg", "regular");
+    font-family: $roboto;
+    color: var(--white);
+  }
+
+  p {
+    @include spacing(margin, 4, "bottom");
+    @include font-size("text-xs", "regular");
+    color: var(--white-60);
+    font-family: $roboto;
+
+    @include breakpoint(tablet) {
+      @include spacing(margin, 6, "bottom");
+      @include font-size("text-xs", "regular");
+    }
+  }
+
+  & span {
+    @include font-size("text-xs", "regular");
+    font-family: $lato;
+  }
+}
+
+.card2 {
+  height: rem(112);
+  @include breakpoint2(tablet) {
+    height: rem(86);
+    padding: rem(15);
+    border-radius: rem(20);
+    &::after,
+    &::before {
+      border-radius: rem(20);
+    }
+  }
+  @include breakpoint2(mobile) {
+  }
+}
+
+.data2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  p {
+    font-family: $lato;
+    color: var(--white);
+  }
+  p:first-child {
+    font-size: rem(14);
+    font-weight: 400;
+    @include breakpoint2(tablet) {
+      font-size: rem(12);
+    }
+  }
+  p:last-child {
+    font-family: $lato;
+    font-size: rem(24);
+    font-weight: 600;
+    @include breakpoint2(tablet) {
+      font-size: rem(18);
+    }
+  }
+}
+
+.card3 {
+  @include breakpoint(mobile) {
+    @include spacing(padding, 16, "left+right");
+    @include spacing(padding, 16, "top+bottom");
+  }
+  @include breakpoint(tablet) {
+    @include spacing(padding, 20, "left+right");
+    @include spacing(padding, 20, "top+bottom");
+  }
+  @include breakpoint(desktop) {
+    @include spacing(padding, 32, "left+right");
+    @include spacing(padding, 24, "top+bottom");
+  }
+}
+
+.data3 {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .descriptions {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    p {
+      color: var(--white);
+    }
+
+    .title {
+      font-family: $lato;
+      font-weight: 600;
+      margin-bottom: rem(12);
+      color: var(--green-30);
+
+      @include breakpoint(mobile) {
+        font-size: rem(14);
+      }
+      @include breakpoint(tablet) {
+        font-size: rem(14);
+      }
+      @include breakpoint(desktop) {
+        font-size: rem(16);
+      }
+    }
+
+    .descriptionContentBlock {
+      .profile {
+        display: flex;
+
+        .avatar {
+          border-radius: rem(16);
+
+          @include breakpoint2(tablet) {
+            border-radius: rem(10);
+          }
+        }
+
+        svg,
+        .avatar {
+          @include breakpoint(mobile) {
+            width: rem(40);
+            height: rem(40);
+          }
+          @include breakpoint(tablet) {
+            width: rem(40);
+            height: rem(40);
+          }
+          @include breakpoint(desktop) {
+            width: rem(60);
+            height: rem(60);
+          }
+        }
+      }
+
+      .pointsLabel {
+        font-family: $lato;
+        font-weight: 600;
+        color: var(--green-30);
+
+        @include breakpoint(mobile) {
+          font-size: rem(18);
+          margin-bottom: rem(14);
+        }
+        @include breakpoint(tablet) {
+          font-size: rem(18);
+          margin-bottom: rem(24);
+        }
+        @include breakpoint(desktop) {
+          font-size: rem(24);
+          margin-bottom: 0;
+        }
+      }
+
+      .totalPointsLabel {
+        font-family: $lato;
+        font-weight: 600;
+
+        @include breakpoint(mobile) {
+          font-size: rem(14);
+          margin-bottom: rem(24);
+        }
+        @include breakpoint(tablet) {
+          font-size: rem(14);
+          margin-bottom: rem(24);
+          white-space: nowrap;
+        }
+        @include breakpoint(desktop) {
+          font-size: rem(14);
+          margin-top: rem(16);
+          margin-bottom: rem(14);
+        }
+      }
+
+      .leaderBoardUsername {
+        margin-left: rem(24);
+        display: flex;
+        justify-content: space-evenly;
+        flex-direction: column;
+
+        .userTitle {
+          color: var(--white-60);
+          font-family: $lato;
+          font-weight: 400;
+
+          @include breakpoint(mobile) {
+            font-size: rem(10);
+          }
+          @include breakpoint(tablet) {
+            font-size: rem(10);
+          }
+          @include breakpoint(desktop) {
+            font-size: rem(12);
+          }
+        }
+
+        .username {
+          font-family: $roboto;
+          font-weight: 400;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+
+          @include breakpoint(mobile) {
+            font-size: rem(16);
+          }
+          @include breakpoint(tablet) {
+            font-size: rem(16);
+          }
+          @include breakpoint(desktop) {
+            font-size: rem(18);
+          }
+        }
+      }
+    }
+  }
+
+  .editButton {
+    max-width: rem(92);
+    transition: $transition_all;
+    font-family: $roboto;
+    border-radius: rem(16);
+    display: inline-flex;
+    appearance: none;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+    position: relative;
+    white-space: nowrap;
+    vertical-align: middle;
+    outline: none;
+    cursor: pointer;
+    background: transparent;
+    border: rem(1) solid var(--green-30);
+    color: var(--green-30);
+    gap: rem(10);
+    @include spacing(padding, 12, "left+right");
+    @include spacing(padding, 10, "top+bottom");
+    @include font-size("text-xs", "bold");
+    height: rem(34);
+
+    &:hover {
+      background: var(--green-10);
+    }
+
+    svg path {
+      stroke: var(--green-30);
+    }
+  }
+
+  .redeemButtonContainer {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    .redeemButton {
+      align-self: flex-end;
+      margin-top: rem(12);
+      margin-bottom: rem(18);
+    }
+
+    p {
+      align-self: flex-end;
+      font-family: $lato;
+      font-style: italic;
+      font-weight: 400;
+
+      @include breakpoint(mobile) {
+        font-size: rem(14);
+      }
+      @include breakpoint(tablet) {
+        font-size: rem(14);
+      }
+      @include breakpoint(desktop) {
+        font-size: rem(16);
+      }
+    }
+
+    .title {
+      color: var(--green-30);
+      font-size: rem(14);
+
+      @include breakpoint2(tablet) {
+        font-size: rem(12);
+      }
+    }
+
+    .successful {
+      color: var(--green-30);
+    }
+
+    .failed {
+      color: var(--red-20);
+    }
+  }
+
+  .subtitle {
+    display: flex;
+    gap: rem(2);
+    color: var(--white-60);
+    @include font-size("text-xs", "medium");
+    font-style: italic;
+
+    .link {
+      color: inherit;
+      text-decoration: underline;
+    }
+
+    svg {
+      margin: 0 rem(4);
+      cursor: pointer;
+    }
+  }
+}

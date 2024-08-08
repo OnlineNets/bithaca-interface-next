@@ -1,0 +1,36 @@
+.contentWrapper {
+  display: flex;
+  width: 100%;
+
+  @include breakpoint2(desktop) {
+    flex-direction: column;
+
+    .rightContainer {
+      margin-top: rem(12);
+    }
+  }
+
+  .leftContainer {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+
+    > :first-child {
+      margin-bottom: rem(24);
+    }
+  }
+
+  .rightContainer {
+    flex: 1;
+
+    @include breakpoint(desktop) {
+      margin-left: rem(32);
+    }
+    @include breakpoint2(tablet) {
+      margin-top: rem(32);
+    }
+    @include breakpoint2(mobile) {
+      margin-top: rem(32);
+    }
+  }
+}

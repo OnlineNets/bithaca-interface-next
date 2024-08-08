@@ -1,0 +1,120 @@
+.transactionDetail {
+  display: flex;
+  flex-direction: column;
+  border-radius: rem(16);
+  background: var(--gray-rgba-20);
+  padding-left: rem(63);
+  padding-top: rem(16);
+  margin-bottom: rem(16);
+  gap: rem(16);
+}
+
+.title {
+  @include font-size("text-md", "semibold");
+  font-family: $lato;
+  color: var(--white);
+}
+
+.table {
+  display: flex;
+  flex-direction: column;
+  gap: rem(4);
+  max-width: rem(1192);
+
+  .row {
+    @include spacing(margin, 8, "top");
+    @include spacing(margin, 12, "bottom");
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    &.header {
+      margin-bottom: rem(4);
+      padding-bottom: rem(7);
+      color: var(--gray-400);
+      border-top: none;
+      background: none;
+      box-shadow: none;
+      display: flex;
+      flex-direction: row;
+      border-bottom: rem(1) solid var(--white-10);
+
+      .cell {
+        @include font-size("text-xs", "regular");
+        align-items: center;
+        color: var(--white-60);
+        width: 100%;
+
+        &:last-child {
+          width: fit-content;
+          min-width: rem(120);
+        }
+      }
+    }
+  }
+
+  .rowBody {
+    @include spacing(padding, 7, "top+bottom");
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+
+    &:last-child {
+      margin-bottom: rem(19);
+    }
+
+    .cell {
+      @include font-size("text-sm", "semibold");
+      font-family: $roboto;
+      color: var(--white-100);
+      display: flex;
+      width: 100%;
+
+      .date {
+        @include font-size("text-sm", "regular");
+      }
+
+      > div {
+        color: var(--white-10 0);
+      }
+
+      &:last-child {
+        width: fit-content;
+        min-width: rem(120);
+      }
+    }
+  }
+  &.positionTable {
+    .row,
+    .rowBody {
+      .cell {
+        display: flex;
+        width: 25%;
+        &:nth-child(2) {
+          justify-content: flex-end;
+        }
+        &:nth-child(3) {
+          justify-content: flex-end;
+        }
+        &:nth-child(4) {
+          width: 25%;
+          justify-content: flex-end;
+        }
+      }
+    }
+  }
+}
+
+.currency {
+  display: flex;
+  align-items: center;
+  gap: rem(4);
+
+  svg {
+    height: rem(16);
+    width: rem(16);
+  }
+}

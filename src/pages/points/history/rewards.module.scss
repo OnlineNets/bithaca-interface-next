@@ -1,0 +1,38 @@
+.wrapper {
+  margin: 0 auto;
+
+  .cardsContainer {
+    display: flex;
+    gap: rem(16);
+    @include spacing("margin", 16, "bottom");
+    @include breakpoint2(mobile) {
+      flex-direction: column;
+    }
+    @include breakpoint(tablet) {
+      flex-direction: unset;
+    }
+    @include breakpoint(desktop) {
+      flex-direction: unset;
+    }
+  }
+}
+
+.tableWrapper {
+  padding: rem(30) rem(30) rem(14) rem(30);
+}
+
+.loaderWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: rem(468);
+
+  @include breakpoint2(tablet) {
+    height: rem(448);
+  }
+  @include breakpoint2(mobile) {
+    height: rem(428);
+  }
+}

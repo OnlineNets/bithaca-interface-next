@@ -1,0 +1,178 @@
+.popupContainer {
+  position: absolute !important;
+  right: rem(52);
+  bottom: rem(100);
+  box-sizing: border-box;
+  background: rgba(33, 32, 39, 0.8);
+  box-shadow:
+    rem(2) rem(2) rem(4) 0 rgba(0, 0, 0, 0.15),
+    0 0 rem(4) 0 rgba(43, 46, 58, 0.15) inset,
+    0 0 rem(15) 0 rgba(43, 46, 58, 0.15) inset;
+  border-radius: rem(10);
+  padding: rem(6) rem(12);
+  z-index: 5 !important;
+
+  svg {
+    height: rem(16);
+    width: rem(16);
+  }
+
+  p {
+    @include font-size("text-sm", "regular");
+    display: flex;
+    align-items: center;
+    gap: rem(4);
+    font-family: $roboto;
+    color: var(--white-60);
+    line-height: rem(20);
+
+    .popupBuyEth {
+      padding-right: rem(3);
+    }
+
+    .popupIfEth {
+      padding-right: rem(19);
+    }
+
+    .italic {
+      font-style: italic;
+    }
+  }
+}
+
+.bonusOrTwinWin {
+  width: rem(440);
+  @media (max-width: $desktop) {
+    right: rem(24);
+    bottom: rem(240) !important;
+    width: rem(320);
+    p {
+      gap: rem(1);
+      font-size: x-small;
+      .popupIfEth {
+        padding-right: rem(14);
+      }
+    }
+  }
+  @media (max-width: $tablet) {
+    bottom: rem(0) !important;
+    width: rem(300) !important;
+    padding: 3px 6px;
+    p {
+      gap: rem(0);
+    }
+  }
+}
+.riskyEarn1 {
+  @media (min-width: $desktop) {
+    &.open {
+      top: rem(440) !important;
+    }
+    &.closed {
+      top: rem(320) !important;
+    }
+  }
+  @media (max-width: $desktop) {
+    bottom: rem(360) !important;
+    left: rem(16) !important;
+  }
+  @media (max-width: $tablet) {
+    width: rem(288);
+    left: rem(0) !important;
+    bottom: rem(-50) !important;
+    margin: 0 !important;
+  }
+}
+.riskyEarn2 {
+  @media (max-width: $desktop) {
+    // width: rem(288);
+    bottom: rem(600) !important;
+    right: rem(24);
+  }
+  @media (max-width: $tablet) {
+    width: rem(288);
+    bottom: rem(40) !important;
+    margin-top: rem(16) !important;
+  }
+}
+
+.popupTopContainer {
+  right: unset;
+  bottom: unset;
+}
+
+.popupGreeksContainer {
+  @media (min-width: $tablet) {
+    right: rem(24);
+    bottom: rem(240);
+    padding: unset;
+  }
+  @media (min-width: $desktop) {
+    &.sell {
+      &.call {
+        right: unset;
+        left: rem(40);
+        bottom: rem(110);
+      }
+      &.put {
+        right: rem(40);
+        bottom: rem(100);
+      }
+    }
+    &.buy {
+      &.open {
+        &.call {
+          right: unset;
+          left: rem(40);
+          bottom: rem(230);
+        }
+        &.put {
+          right: rem(40);
+          bottom: rem(230);
+        }
+      }
+      &.closed {
+        &.call {
+          right: unset;
+          left: rem(40);
+          bottom: rem(290);
+        }
+        &.put {
+          right: rem(40);
+          bottom: rem(290);
+        }
+      }
+    }
+    padding: unset;
+  }
+}
+
+@media (max-width: $tablet) {
+  .popupContainer {
+    position: relative !important;
+    right: 0;
+    bottom: 0;
+    margin-top: rem(24);
+    margin-bottom: rem(24);
+  }
+}
+@media (max-width: $tablet) {
+  .popupContainer {
+    p {
+      font-size: x-small;
+    }
+  }
+}
+
+.childLabel {
+  @media (max-width: $desktop) {
+    display: none;
+  }
+  @include font-size("text-xxs", "medium");
+  font-style: italic;
+  line-height: rem(12);
+  white-space: nowrap;
+  position: absolute;
+  left: 0;
+  top: rem(16);
+}

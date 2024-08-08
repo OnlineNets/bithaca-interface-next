@@ -1,0 +1,44 @@
+.pagination {
+  display: flex;
+  align-items: center;
+  gap: rem(15);
+  list-style: none;
+  cursor: pointer;
+}
+
+.navigationItem {
+  a {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  @include font-size("text-sm", "regular");
+  font-family: $lato;
+  color: var(--white-60);
+  width: 40px;
+  height: 40px;
+
+  transition: $transition_all;
+
+  &:hover {
+    color: var(--white);
+    border-radius: 50%;
+  }
+
+  &.active {
+    color: var(--white);
+    background: none;
+    border-radius: 50%;
+  }
+}
+
+.nextItem {
+  background-color: var(--white-rgba-10);
+  border-radius: 50%;
+}
+
+.ellipsis {
+  color: var(--white-60);
+}

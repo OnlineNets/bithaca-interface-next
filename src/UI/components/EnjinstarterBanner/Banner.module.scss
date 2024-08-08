@@ -1,0 +1,22 @@
+.container {
+  border-radius: rem(30);
+  width: 100%;
+  position: relative;
+
+  @include breakpoint(tablet) {
+    width: 100%;
+    border-radius: rem(20);
+
+    &:before,
+    &:after {
+      border-radius: rem(20);
+    }
+  }
+  img {
+    position: relative;
+    align-self: center;
+    left: rem(4);
+    object-fit: cover;
+    border-radius: rem(30);
+  }
+}

@@ -1,0 +1,97 @@
+.editProfileModal {
+  max-width: rem(300);
+  @include breakpoint2(mobile) {
+    max-width: rem(290);
+    padding: rem(20) !important;
+  }
+}
+
+button.transparentBtn {
+  all: initial;
+  border: none;
+  box-shadow: none;
+  background: transparent;
+  box-sizing: border-box;
+  align-self: center;
+  height: auto;
+  display: flex;
+  cursor: pointer;
+
+  &::before {
+    @extend .transparentBtn;
+    display: none !important;
+  }
+  &:hover,
+  &:active {
+    @extend .transparentBtn;
+  }
+}
+
+.dialogBody {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: rem(24);
+}
+
+.profilePhotoCtrl {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: rem(15);
+  > svg {
+    height: rem(60);
+    width: rem(60);
+  }
+}
+
+.hideAvatarBtn {
+  padding: rem(10) rem(16);
+  min-width: rem(128);
+}
+
+.leaderboardName {
+  width: auto !important;
+  align-items: stretch !important;
+}
+
+.walletAddressField {
+  display: flex;
+  flex-direction: column;
+  gap: rem(6);
+  label {
+    font-family: $lato;
+    @include font-size("text-xs", "regular");
+    cursor: pointer;
+    color: var(--white-60);
+  }
+}
+
+.walletAddress {
+  display: flex;
+  align-items: center;
+  gap: rem(8);
+  line-height: rem(24);
+  height: rem(34);
+  padding: 0 rem(10);
+  border-radius: rem(12);
+  background-color: var(--grey-rgba-30);
+  > svg {
+    height: rem(24);
+    width: rem(24);
+  }
+  > span {
+    flex: 1;
+    font-family: $roboto;
+    font-size: rem(16);
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+}
+
+.avatar {
+  width: rem(60);
+  height: rem(60);
+  border-radius: rem(16);
+}

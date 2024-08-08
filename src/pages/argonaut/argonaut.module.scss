@@ -1,0 +1,13 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+
+  h1 {
+    width: max-content;
+    align-self: center;
+    @include spacing("margin", 10, "top");
+    padding-bottom: rem(8);
+    border-bottom: rem(1) solid transparent;
+    border-color: var(--purple-30);
+  }
+}

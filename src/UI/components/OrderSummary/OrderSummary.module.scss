@@ -1,0 +1,60 @@
+.platformWrapper {
+  margin-left: auto;
+  white-space: nowrap;
+  width: 100% !important;
+  @include breakpoint(desktop) {
+    margin-left: 0;
+    margin-right: rem(8);
+    width: auto !important;
+  }
+}
+
+.balanceWarning {
+  color: var(--red-20);
+  @include font-size("text-xs", "regular");
+  margin-top: rem(8);
+  position: relative;
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+  width: 100%;
+  margin: 10px auto 0px auto;
+
+  @include breakpoint(desktop) {
+    position: absolute;
+    bottom: -18px;
+    margin: 0 auto;
+  }
+}
+
+.balanceText {
+  margin-top: -1px;
+  white-space: nowrap;
+}
+
+.walletStyles {
+  button {
+    @include spacing(padding, 12, "left+right");
+    @include spacing(padding, 12, "top+bottom");
+    @include font-size("text-sm", "bold");
+    height: rem(40);
+    border-radius: rem(20);
+    width: 100%;
+    &:before {
+      border-radius: rem(20) !important;
+    }
+  }
+}
+
+.orderWrapper {
+  width: 100% !important;
+  display: flex;
+  justify-content: space-between;
+  @include breakpoint(desktop) {
+    width: auto !important;
+  }
+}
+
+.submitButton {
+  width: 100% !important;
+}

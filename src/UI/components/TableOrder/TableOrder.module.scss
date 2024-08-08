@@ -1,0 +1,478 @@
+.table {
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
+  position: relative;
+  color: var(--white);
+
+  .row {
+    @include spacing(padding, 16, "top+bottom");
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: rem(38);
+    border-top: rem(1) solid var(--white-rgba-10);
+
+    &::-webkit-scrollbar {
+      height: rem(2);
+    }
+
+    &::-webkit-scrollbar-track {
+      background-color: #1c2028;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: #ffffff99;
+    }
+
+    &:last-child {
+      border-bottom: rem(1) solid var(--white-rgba-10);
+    }
+
+    &.isExpanded {
+      @include spacing(padding, 8, "bottom");
+      border-bottom: rem(1) solid transparent;
+    }
+
+    &.header {
+      @include spacing(padding, 8, "bottom");
+      color: var(--gray-400);
+      background: none;
+      box-shadow: none;
+      border-top: 0;
+      border-bottom: rem(1) solid var(--white-rgba-10);
+
+      .cell {
+        position: relative;
+        @include font-size("text-xs", "regular");
+        align-items: center;
+        color: var(--white-60);
+
+        .isClickable {
+          cursor: pointer;
+        }
+
+        .cancelAllBtn {
+          color: var(--red-20);
+          font-family: $roboto;
+          font-size: rem(12);
+          font-style: normal;
+          font-weight: 700;
+          line-height: normal;
+          text-align: right;
+          white-space: nowrap;
+          padding: 0;
+          &:hover {
+            background-color: transparent;
+          }
+        }
+      }
+    }
+
+    &.data {
+      color: var(--white);
+    }
+
+    .cell {
+      @include font-size("text-md", "regular");
+      font-family: $roboto;
+      display: flex;
+
+      &:nth-child(1) {
+        width: 2%;
+      }
+
+      &:nth-child(2) {
+        justify-content: center;
+      }
+
+      &:nth-child(8) {
+        justify-content: flex-end;
+      }
+
+      &:nth-child(9) {
+        width: 7%;
+      }
+
+      &:nth-child(2),
+      &:nth-child(3),
+      &:nth-child(4) {
+        flex-basis: 22%;
+      }
+
+      &:nth-child(5),
+      &:nth-child(6),
+      &:nth-child(7),
+      &:nth-child(8) {
+        width: calc(90% / 7);
+      }
+
+      &:last-child {
+        justify-content: flex-end;
+      }
+    }
+  }
+  &.isOrder {
+    .row {
+      .cell {
+        flex-basis: 20%;
+        justify-content: flex-start;
+        &:nth-child(3) {
+          flex-basis: 10%;
+          justify-content: flex-end;
+        }
+        &:nth-child(4) {
+          flex-basis: 40%;
+          justify-content: center;
+        }
+        &:nth-child(5) {
+          flex-basis: 10%;
+          justify-content: flex-end;
+        }
+      }
+    }
+  }
+}
+
+.dropdown {
+  padding: 0;
+  height: auto;
+  background: var(--white-rgba-10);
+  border-radius: rem(4);
+  width: fit-content;
+
+  &:hover {
+    background: none;
+  }
+
+  &:before {
+    display: none;
+  }
+
+  &.isActive {
+    transform: rotate(180deg);
+  }
+}
+
+.delete {
+  background: none;
+  padding: 0;
+  height: auto;
+  border-radius: 0;
+  width: fit-content;
+  margin-left: 0;
+
+  &:hover {
+    background: none;
+  }
+
+  svg {
+    height: rem(24);
+    width: rem(24);
+  }
+
+  svg path {
+    stroke: var(--red-20);
+  }
+
+  &:before {
+    display: none;
+  }
+
+  @media (max-width: map-get($breakpoints, "tablet2")) {
+    margin-left: rem(8);
+  }
+}
+
+.currency {
+  display: flex;
+  align-items: center;
+  gap: rem(4);
+
+  svg {
+    height: rem(16);
+    width: rem(16);
+  }
+}
+
+.filter,
+.sort {
+  @include spacing(padding, 4, "all");
+  background: none;
+  height: auto;
+  border-radius: rem(4);
+  margin-top: 0 !important;
+  width: fit-content;
+
+  &:before {
+    display: none;
+  }
+
+  &:hover {
+    background: var(--white-5);
+  }
+}
+
+.sort {
+  svg path {
+    stroke: inherit;
+  }
+}
+
+.filter {
+  svg path {
+    stroke: revert-layer;
+  }
+}
+
+.date {
+  display: flex;
+  align-items: center;
+  gap: rem(3);
+
+  .time {
+    @include spacing(margin, 8, "left");
+  }
+}
+
+.filterDropdown {
+  @include spacing(padding, 16, "all");
+  position: absolute;
+  top: rem(20);
+  left: 0;
+  min-width: rem(125);
+  list-style-type: none;
+  border-radius: rem(8);
+  background: rgba(18, 23, 34);
+  box-shadow:
+    rem(2) rem(2) rem(4) rem(0) rgba(0, 0, 0, 0.15),
+    rem(0) rem(0) rem(4) rem(0) rgba(43, 46, 58, 0.15) inset,
+    rem(0) rem(0) rem(15) rem(0) rgba(43, 46, 58, 0.15) inset;
+  backdrop-filter: blur(rem(10));
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: rem(8);
+  z-index: 2;
+}
+
+.hide {
+  display: none;
+}
+
+.clearAll {
+  @include spacing(padding, 4, "all");
+  @include font-size("text-xs", "bold");
+  font-family: $roboto;
+  background: none;
+  height: auto;
+
+  &:before {
+    display: none;
+  }
+
+  &:hover {
+    background: none;
+    color: var(--green-30);
+  }
+
+  &.selected {
+    color: var(--green-30);
+  }
+}
+
+.emptyTable {
+  @include font-size("text-xs", "regular");
+  padding: rem(150) 0;
+  text-align: center;
+  align-self: center;
+}
+
+.isOpacity {
+  opacity: 0.1;
+}
+
+// Table custom
+
+@mixin table-utilities($gridColumnForExpanded, $gridColumnForHeader) {
+  position: relative;
+  display: grid;
+  .cell {
+    position: relative;
+    align-items: center;
+    display: flex;
+    @include font-size("text-xs", "regular");
+    color: var(--white-60);
+  }
+
+  .cellContent {
+    align-items: center;
+    display: flex;
+    color: var(--white);
+    @include font-size("text-md", "regular");
+    font-family: $roboto;
+  }
+
+  .cellContentExpanded {
+    display: flex;
+    @include font-size("text-sm", "medium");
+    align-items: center;
+    color: var(--white);
+    font-family: $roboto;
+
+    &.bolded {
+      @include font-size("text-sm", "semibold");
+    }
+  }
+
+  .tableRowExpanded {
+    margin-top: 5px;
+    grid-column: $gridColumnForExpanded;
+  }
+
+  .tableExpanderContainer {
+    border-radius: rem(16);
+    background: var(--gray-rgba-20);
+    padding-top: rem(16);
+    margin-bottom: rem(16);
+    gap: rem(16);
+  }
+
+  .separator {
+    grid-column: $gridColumnForExpanded;
+    border-top: rem(1) solid var(--white-rgba-10);
+    margin-bottom: 3px;
+    margin-top: 3px;
+  }
+
+  .headerExpandedTable {
+    color: var(--white);
+    @include font-size("text-md", "semibold");
+    margin-bottom: rem(16);
+    grid-column: $gridColumnForHeader;
+  }
+}
+
+.gridContainerTable {
+  overflow-x: auto;
+  @include table-utilities(a/k, b/j);
+
+  grid-template-columns:
+    [a] 60px
+    [b] minmax(120px, 1fr)
+    [c] minmax(120px, 1fr)
+    [d] minmax(120px, 1fr)
+    [e] 80px
+    [f] minmax(160px, 1fr)
+    [g] minmax(100px, 1fr)
+    [h] minmax(140px, 1fr)
+    [i] minmax(100px, 1fr)
+    [j] 100px
+    [k];
+
+  @media (max-width: map-get($breakpoints, "tablet2")) {
+    grid-column-gap: rem(16);
+  }
+}
+
+.gridContainerTableSettlements {
+  overflow-x: auto;
+  grid-template-columns:
+    [a] 48px
+    [b] minmax(120px, 1fr)
+    [c] minmax(120px, 1fr)
+    [d] minmax(120px, 1fr)
+    [e] minmax(120px, 1fr)
+    [f] minmax(120px, 1fr)
+    [g] 50px
+    [h];
+  @include table-utilities(a/j, b/i);
+
+  @media (max-width: map-get($breakpoints, "tablet2")) {
+    grid-column-gap: rem(16);
+  }
+}
+
+.gridContainerTableLiveOrders {
+  overflow-x: auto;
+  @include table-utilities(a/n, b/m);
+
+  grid-template-columns:
+    [a] 48px
+    [b] minmax(120px, 1fr)
+    [c] minmax(120px, 1fr)
+    [d] minmax(120px, 1fr)
+    [e] 80px
+    [f] minmax(160px, 1fr)
+    [g] minmax(100px, 1fr)
+    [h] minmax(140px, 1fr)
+    [i] minmax(100px, 1fr)
+    [j] 60px
+    [k] minmax(100px, 1fr)
+    [l] minmax(100px, 1fr)
+    [m] 70px
+    [n];
+
+  @media (max-width: map-get($breakpoints, "tablet2")) {
+    grid-column-gap: rem(16);
+  }
+}
+
+.gridContainerTableHistory {
+  overflow-x: auto;
+  @include table-utilities(a/l, b/k);
+
+  grid-template-columns:
+    [a] 48px
+    [b] minmax(120px, 1fr)
+    [c] minmax(120px, 1fr)
+    [d] minmax(120px, 1fr)
+    [e] minmax(80px, 1fr)
+    [f] minmax(150px, 1fr)
+    [g] minmax(100px, 1fr)
+    [h] minmax(140px, 1fr)
+    [i] minmax(100px, 1fr)
+    [j] minmax(100px, 1fr)
+    [k] 70px
+    [l];
+
+  @media (max-width: map-get($breakpoints, "tablet2")) {
+    grid-column-gap: rem(16);
+  }
+}
+
+.cancelAllBtn {
+  color: var(--red-20);
+  font-family: $roboto;
+  font-size: rem(12);
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-align: right;
+  white-space: nowrap;
+  padding: 0;
+  &:hover {
+    background-color: transparent;
+  }
+}
+
+.dividerMargin {
+  margin: 0 5px;
+}
+
+.typePopover {
+  color: var(--white);
+  font-family: $roboto;
+  font-size: rem(12);
+  font-style: normal;
+  line-height: normal;
+  width: rem(160);
+  padding: rem(10);
+  background-color: #1c2028;
+  margin-top: rem(4);
+  border-radius: 5px;
+  box-shadow: 3px 3px 8px 0px #000000;
+  .typePopoverUnderline {
+    text-decoration: underline;
+  }
+}

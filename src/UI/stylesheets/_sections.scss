@@ -1,0 +1,464 @@
+// Styles by section
+@media (max-width: $desktop) {
+  // Stories Section
+  .tabCard--earn {
+    .slider--stories {
+      margin: 0;
+    }
+  }
+
+  .tabCard--noGainNoPayin {
+    .assets--stories {
+      width: fit-content;
+    }
+
+    .flex--stories {
+      .flex--stories {
+        // width: fit-content;
+      }
+    }
+  }
+
+  .tabCard--bonusTwinWin {
+    .flex--stories {
+      .flex--stories {
+        .flex--stories {
+          width: fit-content;
+
+          .color-white-60 {
+            display: none;
+          }
+
+          .assets--stories {
+            width: fit-content;
+          }
+        }
+      }
+    }
+  }
+
+  .tabCard--barriers {
+    .flex--stories {
+      .flex--stories:first-child {
+        gap: 0.1rem !important;
+        justify-content: space-between;
+      }
+
+      .radioButton--stories {
+        width: fit-content !important;
+        gap: 0;
+
+        .radioButton-option--stories {
+          label[for="typeUP"],
+          label[for="typeDOWN"] {
+            width: 3.125rem;
+
+            @media (max-width: $mobile) {
+              width: 100%;
+            }
+          }
+        }
+      }
+
+      .dropdownContainer--stories {
+        width: 4.375rem;
+        min-width: 4.375rem;
+      }
+    }
+
+    .orderSummary--stories {
+      h5 {
+        white-space: nowrap;
+      }
+
+      .flex--stories {
+        width: 100%;
+        justify-content: flex-end;
+      }
+    }
+  }
+
+  // Market
+  .tabCard--market {
+    .tabCard--options,
+    .tabCard--digital-options,
+    .tabCard--forwards {
+      p {
+        white-space: normal;
+      }
+
+      .flex--market {
+        justify-content: space-between;
+      }
+
+      button {
+        margin-left: auto;
+        position: relative;
+      }
+    }
+  }
+}
+
+// @media (max-width: $tablet) {
+//   // Analytics Sections
+//   .flex--analytics {
+//     flex-direction: row !important;
+//     flex-wrap: wrap !important;
+
+//     > div {
+//       width: calc(50% - 0.46875rem);
+//     }
+
+//     > div:nth-child(1) {
+//       .recharts-responsive-container {
+//         .recharts-layer {
+//           transform: translateX(4%);
+//         }
+//       }
+//     }
+//   }
+// }
+
+@media (max-width: $mobile) {
+  // Stories Section
+  .tab--barriers {
+    .flex--stories {
+      flex-wrap: nowrap;
+    }
+  }
+
+  .tabCard--bet {
+    .flex--stories {
+      .radioButton--stories {
+        width: 100% !important;
+      }
+    }
+
+    .labelContainer--stories {
+      width: calc(100% + 3.125rem);
+      margin-left: -1.625rem;
+    }
+  }
+
+  .tabCard--earn {
+    .radioButton--stories {
+      width: 100% !important;
+    }
+
+    .rightPanelHeader--earn {
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 0.625rem;
+    }
+
+    h3 {
+      font-size: 0.875rem;
+    }
+  }
+
+  .tabCard--noGainNoPayin {
+    .flex--stories .flex--stories:first-child {
+      justify-content: space-between;
+
+      > div:nth-child(1) {
+        width: 100%;
+
+        .radioButton--stories {
+          width: 100% !important;
+        }
+      }
+
+      > div:nth-child(3) {
+        width: 47%;
+      }
+    }
+  }
+
+  .tabCard--bonusTwinWin {
+    .radioButton--stories {
+      width: 100% !important;
+    }
+
+    .rightPanelHeader--bonusTwinWin {
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 0.625rem;
+    }
+
+    .flex--stories {
+      .flex--stories:first-child {
+        justify-content: space-between;
+
+        > div:nth-child(1) {
+          width: 100%;
+        }
+
+        > div:nth-child(2) {
+          width: 100%;
+        }
+
+        > div:nth-child(3) {
+          margin-top: 0 !important;
+        }
+      }
+
+      .flex--stories:last-child {
+        flex-wrap: nowrap;
+
+        > .flex--stories {
+          flex-wrap: wrap;
+
+          p {
+            font-size: 0.75rem;
+            margin-left: 0 !important;
+          }
+        }
+      }
+    }
+  }
+
+  .tabCard--barriers {
+    .inputs {
+      .flex--stories {
+        .flex--stories:first-child {
+          justify-content: flex-start;
+
+          > div:nth-child(1) {
+            width: rem(60);
+            margin-right: rem(12);
+
+            .radioButton--stories {
+              width: 100% !important;
+            }
+          }
+
+          > div:nth-child(2) {
+            width: rem(102);
+
+            label {
+              width: 3.75rem;
+            }
+
+            .dropdownContainer--stories {
+              width: 100%;
+            }
+          }
+
+          > div:nth-child(3) {
+            width: rem(114);
+
+            .dropdownContainer--stories {
+              width: 100%;
+            }
+          }
+
+          > h5:nth-child(4) {
+            width: rem(72);
+            margin-top: rem(6);
+          }
+
+          > div:nth-child(5) {
+            width: rem(72);
+            margin-top: rem(6);
+
+            .radioButton--stories {
+              width: rem(64) !important;
+            }
+          }
+
+          > p:nth-child(6) {
+            margin-left: rem(6);
+            width: rem(24);
+            margin-top: rem(6);
+          }
+
+          .mt-22 {
+            .radioButton--stories {
+              width: 3.75rem !important;
+              margin: 0 0.5rem;
+            }
+          }
+
+          > div:nth-child(7) {
+            width: rem(114);
+            margin-top: rem(6);
+            // margin-left: 0.438rem;
+
+            .dropdownContainer--stories {
+              width: 100%;
+            }
+          }
+
+          > div:nth-child(8) {
+            width: rem(170);
+            margin-top: rem(6);
+            // margin-left: 0.438rem;
+
+            .dropdownContainer--stories {
+              width: 100%;
+            }
+          }
+
+          > div:nth-child(9) {
+            width: rem(114);
+            margin-left: rem(8);
+            margin-top: rem(6);
+            // margin-left: 0.438rem;
+
+            .dropdownContainer--stories {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // Market
+  .tabCard--market {
+    .tabCard--forwards {
+      .flex--market {
+        .flex--market {
+          width: 100% !important;
+          justify-content: space-between;
+
+          div {
+            width: fit-content !important;
+          }
+
+          .flex--market {
+            width: 100% !important;
+            align-items: flex-end;
+          }
+        }
+
+        > div:nth-child(1) {
+          width: 60%;
+
+          .radioButton--market {
+            width: 100% !important;
+          }
+        }
+
+        > div:nth-child(2) {
+          width: 34%;
+
+          .radioButton--market {
+            width: 41px;
+
+            .radioButton-option--market {
+              width: 100%;
+            }
+          }
+        }
+
+        > div:nth-child(3),
+        > div:nth-child(4),
+        > div:nth-child(5) {
+          width: 47%;
+
+          > div {
+            width: 100%;
+
+            > div {
+              width: 100%;
+
+              .flex--market {
+                width: 100%;
+
+                div {
+                  width: fit-content;
+                }
+              }
+            }
+          }
+        }
+
+        > div:nth-child(6),
+        > div:nth-child(7) {
+          width: 21%;
+        }
+
+        button {
+          width: 100%;
+        }
+      }
+    }
+
+    .tabCard--options,
+    .tabCard--digital-options {
+      .flex--market {
+        .flex--market {
+          width: 100% !important;
+          justify-content: space-between;
+
+          div {
+            width: fit-content !important;
+          }
+
+          .flex--market {
+            width: 100% !important;
+            align-items: flex-end;
+          }
+        }
+
+        > div:nth-child(1) {
+          width: 48%;
+
+          .radioButton--market {
+            width: 100% !important;
+          }
+        }
+
+        > div:nth-child(2) {
+          width: 47%;
+
+          .radioButton--market {
+            width: 41px;
+
+            .radioButton-option--market {
+              width: 100%;
+            }
+          }
+        }
+
+        > div:nth-child(3),
+        > div:nth-child(4),
+        > div:nth-child(5) {
+          width: 47%;
+
+          > div {
+            width: 100%;
+
+            > div {
+              width: 100%;
+
+              .flex--market {
+                width: 100%;
+
+                div {
+                  width: fit-content;
+                }
+              }
+            }
+          }
+        }
+
+        > div:nth-child(6),
+        > div:nth-child(7) {
+          width: 21%;
+        }
+
+        button {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+.flex--leaderboard {
+  > div {
+    width: calc(50% - 0.46875rem);
+  }
+}

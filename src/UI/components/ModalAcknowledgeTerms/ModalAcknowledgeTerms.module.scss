@@ -1,0 +1,65 @@
+.tncModal {
+  width: rem(358);
+  padding: rem(16);
+  h4 {
+    @include font-size("text-md", "semibold");
+    font-family: $lato;
+    @include breakpoint(tablet) {
+      @include font-size("text-lg", "semibold");
+    }
+  }
+  @include breakpoint(tablet) {
+    width: rem(500);
+    padding: rem(30);
+  }
+
+  @include breakpoint(desktop) {
+    width: rem(864);
+  }
+}
+.acknowledgeTerms {
+  display: flex;
+  flex-direction: column;
+  gap: rem(24);
+  font-family: $roboto;
+  line-height: 1rem;
+  .title {
+    @include font-size("text-xs", "regular");
+    font-family: $lato;
+
+    @include breakpoint(tablet) {
+      @include font-size("text-sm", "regular");
+    }
+  }
+  .title > a {
+    text-decoration: underline;
+    color: var(--green-30);
+  }
+  .checkBox {
+    align-items: flex-start;
+  }
+  .labelCheckBox {
+    @include font-size("text-xs", "regular");
+    font-family: $lato;
+
+    @include breakpoint(tablet) {
+      @include font-size("text-sm", "regular");
+    }
+    white-space: pre-wrap;
+    text-align: justify;
+  }
+  .buttonContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: rem(8);
+  }
+
+  .button {
+    flex: 1;
+  }
+  .primaryButton {
+    margin-top: 0px;
+  }
+}

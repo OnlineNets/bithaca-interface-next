@@ -1,0 +1,123 @@
+.connectedWallet {
+  border-radius: 50px !important;
+  @include font-size("text-sm", "medium");
+  font-family: $roboto;
+  background: var(--white-10) !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  padding: rem(5) rem(5) rem(5) rem(19);
+  color: var(--white);
+  border-width: rem(0);
+
+  @include breakpoint(desktop) {
+    @include font-size("text-sm", "medium");
+    padding: rem(5) rem(5) rem(5) rem(32) !important;
+    gap: rem(14) !important;
+  }
+
+  @include breakpoint(mobile) {
+    @include font-size("text-xs", "medium");
+    gap: rem(5);
+    padding: rem(5) rem(5);
+  }
+
+  &:before {
+    background: linear-gradient(var(--white-10) 0%, rgba(94, 225, 146, 0) 100%) !important;
+  }
+
+  .displayName {
+    display: none; // Hide on mobile by default
+
+    @include breakpoint(desktop) {
+      display: inline; // Show on desktop
+    }
+  }
+
+  .chevron {
+    display: inline;
+
+    @include breakpoint(desktop) {
+      display: none;
+    }
+  }
+}
+
+.connectWallet {
+  border-radius: 50px !important;
+  @include font-size("text-xs", "medium");
+  font-family: $roboto;
+  background: #419165 !important;
+  padding: rem(9.5) rem(15.5) !important;
+  color: var(--white);
+  border-width: rem(0);
+  white-space: nowrap;
+  cursor: pointer;
+  position: relative;
+
+  @include breakpoint(tablet) {
+  }
+  &:hover {
+    background: #49a570 !important;
+  }
+
+  &:before {
+    border-radius: 50px !important;
+    content: "";
+    display: block;
+    position: absolute;
+    top: -(rem(0.5));
+    bottom: -(rem(0.5));
+    right: -(rem(0.5));
+    left: -(rem(0.5));
+    z-index: -1;
+    background: linear-gradient(var(--green-30) 0%, rgba(94, 225, 146, 0) 100%);
+
+    @include breakpoint(tablet) {
+    }
+  }
+}
+
+.wrongNetwork {
+  @include font-size("text-xs", "regular");
+  font-family: $roboto;
+  background: var(--red-20) !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+  cursor: pointer;
+  gap: 14px;
+  padding: rem(7) rem(14) !important;
+  color: var(--white);
+  border-width: rem(0);
+
+  &:before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: -(rem(0.5));
+    bottom: -(rem(0.5));
+    right: -(rem(0.5));
+    left: -(rem(0.5));
+    z-index: -1;
+    background: linear-gradient(var(--red-20) 0%, rgba(228, 47, 47, 0) 100%) !important;
+  }
+}
+
+.locationRestricted {
+  padding: rem(11) rem(16) !important;
+  @include font-size("text-xs", "bold");
+}
+
+.container {
+  opacity: 0;
+  pointer-events: none;
+  user-select: none;
+}
+
+.termsContainer {
+  display: flex;
+  gap: 12;
+}

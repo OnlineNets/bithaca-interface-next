@@ -1,0 +1,145 @@
+.container {
+  position: relative;
+
+  &:before {
+    content: url("../../../assets/ithaca_logo.svg");
+    position: absolute;
+    bottom: rem(100);
+    left: rem(50);
+    opacity: 0.2;
+    z-index: 2;
+    pointer-events: none;
+  }
+}
+
+.legend,
+.legend span {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.legend {
+  gap: rem(16);
+  width: 100%;
+  justify-content: center;
+  top: rem(37);
+  display: flex;
+  position: relative;
+}
+
+.legend span {
+  @include font-size("text-xs", "semibold");
+  gap: rem(3);
+  font-family: $roboto;
+  color: #9a9daa;
+
+  &:first-child {
+    @include spacing(padding, 8, "left+right");
+    @include spacing(padding, 4, "top+bottom");
+    background: var(--white-10);
+    border-radius: rem(10);
+    color: var(--white);
+  }
+}
+
+.total,
+.call,
+.put {
+  height: rem(8);
+  width: rem(8);
+  border-radius: 50%;
+}
+
+.total {
+  background: var(--white);
+}
+
+.call {
+  background: var(--green-20);
+}
+
+.put {
+  background: var(--red-20);
+}
+
+.axisLabel {
+  @include font-size("text-sm", "semibold");
+  font-family: $roboto;
+  color: var(--white-60);
+}
+
+.tooltip {
+  @include spacing(padding, 10, "all");
+  display: flex;
+  flex-direction: column;
+  gap: rem(8);
+  border-radius: rem(8);
+  background: rgba(18, 23, 34, 0.7);
+  box-shadow:
+    rem(2) rem(2) rem(4) 0px rgba(0, 0, 0, 0.15),
+    0px 0px rem(4) 0px rgba(43, 46, 58, 0.15) inset,
+    0px 0px rem(15) 0px rgba(43, 46, 58, 0.15) inset;
+  backdrop-filter: blur(rem(10));
+
+  .row {
+    @include font-size("text-md", "regular");
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: var(--white);
+    font-family: $roboto;
+    gap: rem(8);
+
+    p,
+    span {
+      @include font-size("text-xs", "regular");
+      color: var(--white-60);
+      font-family: $lato;
+    }
+
+    .value {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: rem(4);
+    }
+  }
+}
+
+.leftLabel {
+  position: absolute;
+  @include font-size("text-sm", "medium");
+  color: var(--white-60);
+  top: 50%;
+  transform: translate(-45%, -300%) rotate(-90deg);
+}
+
+.headerContent {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: rem(4);
+  margin-bottom: rem(16);
+
+  & p {
+    @include font-size("text-xs", "regular");
+    font-family: $lato;
+  }
+
+  & h3 {
+    @include font-size("text-md", "semibold");
+    font-family: $roboto !important;
+    margin: 0 !important;
+    padding: 0;
+
+    @include breakpoint(tablet) {
+      @include font-size("text-sm", "semibold");
+    }
+  }
+}
+
+.chartMaxPainLabel {
+  fill: #9d9daa;
+  font-size: 12;
+}

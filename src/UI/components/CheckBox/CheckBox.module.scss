@@ -1,0 +1,53 @@
+.container {
+  @include font-size("text-sm", "medium");
+  display: flex;
+  position: relative;
+  padding-left: rem(25);
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  align-items: center;
+  & input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+}
+
+.checkmark {
+  position: absolute;
+  left: 0;
+  border-radius: rem(4);
+  height: rem(16);
+  width: rem(16);
+  border: 1px solid var(--white-20);
+
+  &::after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+}
+
+.container input:checked ~ .checkmark {
+  background-color: var(--green-30);
+  border: none;
+}
+
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.container .checkmark:after {
+  left: rem(5);
+  top: rem(2);
+  width: rem(4);
+  height: rem(8);
+  border: solid var(--white-5);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}

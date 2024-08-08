@@ -1,0 +1,221 @@
+.btn {
+  transition: $transition_all;
+  font-family: $roboto;
+  border-radius: rem(16);
+  display: inline-flex;
+  appearance: none;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  position: relative;
+  white-space: nowrap;
+  vertical-align: middle;
+  outline: none;
+  border: 0;
+  cursor: pointer;
+  padding: 0;
+
+  svg {
+    height: rem(16);
+    width: rem(16);
+  }
+}
+
+// Sizes
+.btn--sm {
+  @include spacing(padding, 12, "left+right");
+  @include spacing(padding, 10, "top+bottom");
+  @include font-size("text-xs", "bold");
+  height: rem(34);
+}
+
+.btn--lg {
+  @include spacing(padding, 12, "left+right");
+  @include spacing(padding, 12, "top+bottom");
+  @include font-size("text-sm", "bold");
+  height: rem(40);
+  border-radius: rem(20);
+  // width: rem(148);
+  &:before {
+    border-radius: rem(20) !important;
+  }
+}
+
+// Variants
+.btn--primary {
+  background: #3c8d60;
+  color: var(--white);
+  gap: rem(10);
+
+  &:hover {
+    background: #45a16c;
+  }
+
+  &:before {
+    content: "";
+    display: block;
+    position: absolute;
+    border-radius: rem(16);
+    top: -(rem(0.5));
+    bottom: -(rem(0.5));
+    right: -(rem(0.5));
+    left: -(rem(0.5));
+    z-index: -1;
+    background: linear-gradient(var(--green-30) 0%, rgba(94, 225, 146, 0) 150%);
+  }
+
+  &[disabled] {
+    &:before {
+      content: "";
+      display: block;
+      position: absolute;
+      border-radius: rem(16);
+      top: -(rem(0.5));
+      bottom: -(rem(0.5));
+      right: -(rem(0.5));
+      left: -(rem(0.5));
+      z-index: -1;
+      background: linear-gradient(#4f4f4f 0%, rgba(79, 79, 79, 0) 100%);
+    }
+  }
+
+  &[disabled],
+  &[disabled]:hover {
+    background: #24272d;
+    color: var(--white-30);
+    cursor: not-allowed;
+
+    svg path {
+      stroke: var(--white-30);
+    }
+  }
+
+  svg path {
+    stroke: var(--white);
+  }
+}
+
+.btn--secondary {
+  background: #360e5f;
+  color: var(--white);
+  gap: rem(4);
+
+  &:hover {
+    background: #47117e;
+  }
+
+  &:before {
+    content: "";
+    display: block;
+    position: absolute;
+    border-radius: rem(16);
+    top: -(rem(0.5));
+    bottom: -(rem(0.5));
+    right: -(rem(0.5));
+    left: -(rem(0.5));
+    z-index: -1;
+    background: linear-gradient(var(--purple-30) 0%, rgba(86, 17, 152, 0) 100%);
+  }
+
+  &[disabled],
+  &[disabled]:hover {
+    background: transparent;
+    color: var(--white-30);
+    border: rem(1) solid var(--white-30);
+    cursor: not-allowed;
+
+    &:before {
+      display: none;
+    }
+
+    svg path {
+      stroke: var(--white-30);
+    }
+  }
+
+  svg path {
+    stroke: var(--white);
+  }
+}
+
+.btn--outline {
+  background: transparent;
+  border: rem(1) solid var(--green-30);
+  color: var(--green-30);
+  gap: rem(10);
+
+  &:hover {
+    background: var(--green-10);
+  }
+
+  &[disabled],
+  &[disabled]:hover {
+    background: transparent;
+    color: var(--white-30);
+    border-color: var(--white-30);
+    cursor: not-allowed;
+
+    svg path {
+      stroke: var(--white-30);
+    }
+  }
+
+  svg path {
+    stroke: var(--green-30);
+  }
+}
+
+.btn--icon {
+  background: none;
+  padding: 0;
+}
+
+.btn--clear {
+  padding: rem(5) rem(9) !important;
+  background: none;
+  color: var(--red-20);
+  height: auto;
+  align-self: flex-end;
+}
+
+// TO BE REMOVED
+.btn--dropdown {
+  @include spacing(padding, 12, "all");
+  border-radius: 0;
+  background: var(--purple-rgba);
+  color: var(--white);
+  border: rem(1) solid var(--purple);
+  border-top: rem(1) solid rgba(0, 0, 0, 0.5);
+  justify-content: space-between;
+
+  &:last-child {
+    border-bottom: rem(1) solid rgba(0, 0, 0, 0.5);
+  }
+
+  svg path {
+    stroke: var(--white);
+  }
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.5);
+  }
+}
+
+.btn--link {
+  @include spacing(padding, 16, "left+right");
+  @include font-size("text-sm", "regular");
+  border-radius: 0;
+  background: none;
+  color: var(--white);
+  justify-content: flex-start;
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.5);
+  }
+}
+
+@media (max-width: $desktop) {
+  .btn--primary {
+    width: 100%;
+  }
+}

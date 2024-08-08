@@ -1,0 +1,173 @@
+// Font smoothing
+@mixin font-smoothing($value: antialiased) {
+  @if $value == antialiased {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  } @else {
+    -webkit-font-smoothing: subpixel-antialiased;
+    -moz-osx-font-smoothing: auto;
+  }
+}
+
+// Convert px to rem
+@function rem($px) {
+  @return ($px / 16) * 1rem;
+}
+
+// Font weights
+$font-weights: (
+  "regular": 400,
+  "medium": 500,
+  "semibold": 600,
+  "bold": 700,
+);
+
+// Font sizes
+$font-sizes: (
+  "text-xl": (
+    font-size: rem(24),
+    line-height: normal,
+  ),
+  "text-lg": (
+    font-size: rem(18),
+    line-height: normal,
+  ),
+  "text-md": (
+    font-size: rem(16),
+    line-height: normal,
+  ),
+  "text-sm": (
+    font-size: rem(14),
+    line-height: normal,
+  ),
+  "text-xs": (
+    font-size: rem(12),
+    line-height: normal,
+  ),
+  "text-xxs": (
+    font-size: rem(10),
+    line-height: normal,
+  ),
+);
+
+// Mixin for font size
+@mixin font-size($scale, $weight) {
+  font-size: map-get(map-get($font-sizes, $scale), font-size);
+  line-height: map-get(map-get($font-sizes, $scale), line-height);
+  font-weight: map-get($font-weights, $weight);
+}
+
+// Spacing pattern
+$spacings: (
+  1: rem(1),
+  2: rem(2),
+  3: rem(3),
+  4: rem(4),
+  6: rem(6),
+  8: rem(8),
+  10: rem(10),
+  12: rem(12),
+  14: rem(14),
+  15: rem(15),
+  16: rem(16),
+  20: rem(20),
+  21: rem(21),
+  24: rem(24),
+  30: rem(30),
+  32: rem(32),
+  34: rem(34),
+  40: rem(40),
+  42: rem(42),
+  48: rem(48),
+  56: rem(56),
+  60: rem(60),
+  64: rem(64),
+  72: rem(72),
+  73: rem(73),
+  74: rem(74),
+  80: rem(80),
+  84: rem(84),
+  88: rem(88),
+  96: rem(96),
+  119: rem(119),
+  124: rem(124),
+  128: rem(128),
+  160: rem(160),
+  192: rem(192),
+  224: rem(224),
+  256: rem(256),
+);
+
+// Mixin for spacing
+@mixin spacing($property, $size, $sides: "all") {
+  @if $sides == "all" {
+    #{$property}: map-get($spacings, $size);
+  } @else if $sides == "top+bottom" {
+    #{$property}-top: map-get($spacings, $size);
+    #{$property}-bottom: map-get($spacings, $size);
+  } @else if $sides == "left+right" {
+    #{$property}-left: map-get($spacings, $size);
+    #{$property}-right: map-get($spacings, $size);
+  } @else if $sides == "top" {
+    #{$property}-top: map-get($spacings, $size);
+  } @else if $sides == "bottom" {
+    #{$property}-bottom: map-get($spacings, $size);
+  } @else if $sides == "left" {
+    #{$property}-left: map-get($spacings, $size);
+  } @else if $sides == "right" {
+    #{$property}-right: map-get($spacings, $size);
+  } @else {
+    @warn "Invalid value for `$sides`. It should be 'all', 'top', 'bottom', 'left', 'right', 'top+bottom', or 'left+right'.";
+  }
+}
+
+// Variables
+$mobile: rem(430);
+$tablet: rem(695);
+$desktop: rem(1435);
+
+// Breakpoints
+$breakpoints: (
+  mobile: rem(430),
+  mobile2: rem(767),
+  tablet: rem(695),
+  desktop: rem(1435),
+  tablet2: rem(1280),
+);
+
+// Breakpoints
+$breakpoints2: (
+  mobile: rem(767),
+  tablet: rem(1280),
+  desktop: rem(1435),
+);
+
+// Mixin for breakpoints min-width
+@mixin breakpoint($point) {
+  @if map-has-key($breakpoints, $point) {
+    @media (min-width: map-get($breakpoints, $point)) {
+      @content;
+    }
+  } @else {
+    @warn "No breakpoint defined for `#{$point}`.";
+  }
+}
+
+// Mixin for breakpoints max-width
+@mixin breakpoint2($point) {
+  @if map-has-key($breakpoints2, $point) {
+    @media (max-width: map-get($breakpoints2, $point)) {
+      @content;
+    }
+  } @else {
+    @warn "No breakpoint defined for `#{$point}`.";
+  }
+}
+
+// Container sizes
+$container-sizes: (
+  sm: rem(480),
+  md: rem(990),
+  lg: rem(1024),
+  xl: rem(1440),
+);
